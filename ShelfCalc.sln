@@ -1,0 +1,49 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33110.190
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShelfCalc", "ShelfCalc\ShelfCalc.csproj", "{6F0822CA-365B-48C3-BE8D-DBBBC82FE574}"
+EndProject
+Project("{911E67C6-3D85-4FCE-B560-20A9C3E3FF48}") = "acad", "..\..\..\Program Files\Autodesk\AutoCAD 2020\acad.exe", "{655883F8-8EF0-4966-9B48-7A42EB2BA0E3}"
+	ProjectSection(DebuggerProjectSystem) = preProject
+		PortSupplier = 00000000-0000-0000-0000-000000000000
+		Executable = C:\Program Files\Autodesk\AutoCAD 2020\acad.exe
+		RemoteMachine = POPOV
+		StartingDirectory = C:\Program Files\Autodesk\AutoCAD 2020
+		Environment = По умолчанию
+		LaunchingEngine = 00000000-0000-0000-0000-000000000000
+		UseLegacyDebugEngines = No
+		LaunchSQLEngine = No
+		AttachLaunchAction = No
+		IORedirection = Auto
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|x64 = Debug|x64
+		Release|Any CPU = Release|Any CPU
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6F0822CA-365B-48C3-BE8D-DBBBC82FE574}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6F0822CA-365B-48C3-BE8D-DBBBC82FE574}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6F0822CA-365B-48C3-BE8D-DBBBC82FE574}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{6F0822CA-365B-48C3-BE8D-DBBBC82FE574}.Debug|x64.Build.0 = Debug|Any CPU
+		{6F0822CA-365B-48C3-BE8D-DBBBC82FE574}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6F0822CA-365B-48C3-BE8D-DBBBC82FE574}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6F0822CA-365B-48C3-BE8D-DBBBC82FE574}.Release|x64.ActiveCfg = Release|Any CPU
+		{6F0822CA-365B-48C3-BE8D-DBBBC82FE574}.Release|x64.Build.0 = Release|Any CPU
+		{655883F8-8EF0-4966-9B48-7A42EB2BA0E3}.Debug|Any CPU.ActiveCfg = Release|x64
+		{655883F8-8EF0-4966-9B48-7A42EB2BA0E3}.Debug|x64.ActiveCfg = Release|x64
+		{655883F8-8EF0-4966-9B48-7A42EB2BA0E3}.Release|Any CPU.ActiveCfg = Release|x64
+		{655883F8-8EF0-4966-9B48-7A42EB2BA0E3}.Release|x64.ActiveCfg = Release|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1758137A-7C89-4C25-AC54-AF86CBEFE8F6}
+	EndGlobalSection
+EndGlobal
