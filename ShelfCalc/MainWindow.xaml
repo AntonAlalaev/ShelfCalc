@@ -8,12 +8,12 @@
              mc:Ignorable="d" 
             Title="MainWindow" Height="600" Width="1000" Loaded="Window_Loaded"
             Background="Black">
-    <Grid>
+    <Grid x:Name="MainGrid">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="4*"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        <Grid Grid.Row="0" Grid.Column="1" >
+        <Grid Name="VisualGrid" Grid.Row="0" Grid.Column="1" >
             <Grid.RowDefinitions>
                 <RowDefinition Height="7*"/>
                 <RowDefinition Height="2*"/>
@@ -21,8 +21,47 @@
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
-            <Image Source="StellPicture.png" Grid.Row="0"/>
-            <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="0*"/>
+            </Grid.ColumnDefinitions>
+            <!-- <Image Source="StellPicture.bmp" Grid.Row="0" Grid.ColumnSpan="2"/> -->
+            <!-- Изображение стеллажа -->
+            <Grid Name ="StellarView" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="5*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="5*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="5*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="5*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="5*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="5*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="8*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="5*"/>
+                </Grid.ColumnDefinitions>
+                <Rectangle Grid.Column="1" Grid.Row="0" Grid.RowSpan="11" Stroke="Lavender" Fill="Gray"/>
+                <Rectangle Grid.Column="3" Grid.Row="0" Grid.RowSpan="11" Stroke="Lavender" Fill="Gray"/>
+                <Rectangle Grid.Column="2" Grid.Row="0" Grid.RowSpan="1" Stroke="Lavender" Fill="Gray"/>
+                <Rectangle Grid.Column="2" Grid.Row="2" Grid.RowSpan="1" Stroke="Lavender" Fill="Gray"/>
+                <Rectangle Grid.Column="2" Grid.Row="4" Grid.RowSpan="1" Stroke="Lavender" Fill="Gray"/>
+                <Rectangle Grid.Column="2" Grid.Row="6" Grid.RowSpan="1" Stroke="Lavender" Fill="Gray"/>
+                <Rectangle Grid.Column="2" Grid.Row="8" Grid.RowSpan="1" Stroke="Lavender" Fill="Gray"/>
+                <TextBlock Grid.Column="4" Grid.Row="9" Text="А" FontSize="30" Foreground="Yellow" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <TextBlock Grid.Column="2" Grid.Row="5" Text="B" FontSize="30" Foreground="Yellow" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <TextBlock Grid.Column="0" Grid.Row="3" Text="C" FontSize="30" Foreground="Yellow" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <TextBlock Grid.Column="0" Grid.Row="7" Text="D" FontSize="30" Foreground="Yellow" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            </Grid>
+            <!-- Изображение стеллажа -->
+                <Grid Grid.Row="1">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*"/>
                     <RowDefinition Height="*"/>
@@ -47,7 +86,7 @@
 
 
 
-        <TabControl Grid.Column="0" Background="Black" BorderThickness="0" BorderBrush="Lavender" >
+        <TabControl Name="MainTab" Grid.Column="0" Background="Black" BorderThickness="0" BorderBrush="Lavender" SelectionChanged="MainTab_SelectionChanged" >
 
             <!-- Вкладка со стационарными стеллажами -->
             <TabItem Name="Stati" >
@@ -502,6 +541,97 @@
                     </Grid>
                 </TabItem.Content>
             </TabItem>
+            <!--Слайд 1000-->
+            <TabItem x:Name="TabSlide">
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <Rectangle Height="10" Width="10" Fill="Black" />
+                        <TextBlock  FontSize="20" Margin="3">Слайд 1000</TextBlock>
+                    </StackPanel>
+                </TabItem.Header>
+                <TabItem.Content>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="0.5*"/>
+                            <ColumnDefinition Width="3*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="0.7*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <!-- Заполнение Квадаратов и заливка  -->
+                        <Rectangle Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" Fill="Black" Stroke="Lavender" StrokeThickness="1"/>
+                        <Rectangle Grid.Row="0" Grid.Column="3" Fill="Black" Stroke="Lavender" StrokeThickness="1"/>
+
+                        <Rectangle Grid.Row="1" Grid.Column="0" Fill="Black" Stroke="Lavender" StrokeThickness="1"/>
+                        <Rectangle Grid.Row="2" Grid.Column="0" Fill="Black" Stroke="Lavender" StrokeThickness="1"/>
+                        <Rectangle Grid.Row="3" Grid.Column="0" Fill="Black" Stroke="Lavender" StrokeThickness="1"/>
+                        <Rectangle Grid.Row="4" Grid.Column="0" Fill="Black" Stroke="Lavender" StrokeThickness="1"/>
+                        <Rectangle Grid.Row="5" Grid.Column="0" Fill="Black" Stroke="Lavender" StrokeThickness="1"/>
+
+                        <Rectangle Grid.Row="1" Grid.Column="1" Fill="Black" Stroke="Lavender" StrokeThickness="1"/>
+                        <Rectangle Grid.Row="2" Grid.Column="1" Fill="Black" Stroke="Lavender" StrokeThickness="1"/>
+                        <Rectangle Grid.Row="3" Grid.Column="1" Fill="Black" Stroke="Lavender" StrokeThickness="1"/>
+                        <Rectangle Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="2" Fill="Black" Stroke="Lavender" StrokeThickness="1"/>
+                        <Rectangle Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="2" Fill="Black" Stroke="Lavender" StrokeThickness="1"/>
+
+                        <Rectangle Grid.Row="1" Grid.Column="2" Fill="Black" Stroke="Lavender" StrokeThickness="1"/>
+                        <Rectangle Grid.Row="2" Grid.Column="2" Fill="Black" Stroke="Lavender" StrokeThickness="1"/>
+                        <Rectangle Grid.Row="3" Grid.Column="2" Fill="Black" Stroke="Lavender" StrokeThickness="1"/>
+
+                        <Rectangle Grid.Row="1" Grid.Column="3" Fill="Black" Stroke="Lavender" StrokeThickness="1"/>
+                        <Rectangle Grid.Row="2" Grid.Column="3" Fill="Black" Stroke="Lavender" StrokeThickness="1"/>
+                        <Rectangle Grid.Row="3" Grid.Column="3" Fill="Black" Stroke="Lavender" StrokeThickness="1"/>
+                        <Rectangle Grid.Row="4" Grid.Column="3" Fill="Black" Stroke="Lavender" StrokeThickness="1"/>
+                        <Rectangle Grid.Row="5" Grid.Column="3" Fill="Black" Stroke="Lavender" StrokeThickness="1"/>
+
+                        <Rectangle Fill="LightGray" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="2" Grid.Row="1"/>
+                        <Rectangle Fill="LightGray" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="2" Grid.Row="2"/>
+                        <Rectangle Fill="LightGray" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="2" Grid.Row="3"/>
+
+                        <TextBlock Grid.Row="1" Grid.Column="0"  FontSize="25" VerticalAlignment="Center" HorizontalAlignment="Center" TextWrapping="Wrap" Foreground="LemonChiffon">A</TextBlock>
+                        <TextBlock Grid.Row="2" Grid.Column="0"  FontSize="25" VerticalAlignment="Center" HorizontalAlignment="Center" TextWrapping="Wrap" Foreground="LemonChiffon">B</TextBlock>
+                        <TextBlock Grid.Row="4" Grid.Column="0"  FontSize="25" VerticalAlignment="Center" HorizontalAlignment="Center" TextWrapping="Wrap" Foreground="LemonChiffon">C</TextBlock>
+                        <TextBlock Grid.Row="5" Grid.Column="0"  FontSize="25" VerticalAlignment="Center" HorizontalAlignment="Center" TextWrapping="Wrap" Foreground="LemonChiffon">D</TextBlock>
+                        <TextBlock Grid.Row="0" Grid.Column="1" FontSize="20" Margin="2" VerticalAlignment="Center" HorizontalAlignment="Left" TextWrapping="Wrap" TextAlignment="Center" Grid.ColumnSpan="2" Foreground="Goldenrod" >Наименование параметра</TextBlock>
+                        <TextBlock Grid.Row="0" Grid.Column="3" FontSize="20" Margin="2" VerticalAlignment="Center" HorizontalAlignment="Center" TextWrapping="Wrap" TextAlignment="Center" Grid.ColumnSpan="1" Foreground="Goldenrod" >Значение</TextBlock>
+                        <TextBlock Grid.Row="1" Grid.Column="1" FontSize="18" Margin="2" VerticalAlignment="Center" HorizontalAlignment="Left" TextWrapping="Wrap" TextAlignment="Left" Foreground="Lavender">Расстояние от пола до рабочей плоскости нижней полки</TextBlock>
+                        <TextBlock Grid.Row="2" Grid.Column="1" FontSize="20" Margin="2" VerticalAlignment="Center" HorizontalAlignment="Left" TextWrapping="Wrap" TextAlignment="Left" Foreground="Lavender">Расстояние между полками</TextBlock>
+                        <TextBlock Grid.Row="3" Grid.Column="1" FontSize="20" Margin="2" VerticalAlignment="Center" HorizontalAlignment="Left" TextWrapping="Wrap" TextAlignment="Left" Foreground="Lavender">Количество полок</TextBlock>
+                        <TextBlock Grid.Row="4" Grid.Column="1" FontSize="20" Margin="2" VerticalAlignment="Center" HorizontalAlignment="Left" TextWrapping="Wrap" TextAlignment="Left" Foreground="Lavender">Высота верхней полки</TextBlock>
+                        <TextBlock Grid.Row="5" Grid.Column="1" FontSize="20" Margin="2" VerticalAlignment="Center" HorizontalAlignment="Left" TextWrapping="Wrap" TextAlignment="Left" Foreground="Lavender">Высота стойки</TextBlock>
+                        <!-- Ввод данных -->
+                        <TextBox x:Name="ShelfLowerSlide" Grid.Row="1" Grid.Column="2"  FontSize="25"   TextWrapping="Wrap" HorizontalAlignment="Center" BorderBrush="LightGray" VerticalAlignment="Center" Background="LightGray" FontWeight="Bold" Text="42" TextChanged="ShelfLowerT_TextChanged"  />
+                        <TextBox x:Name="ShelfDistanceSlide" Grid.Row="2" Grid.Column="2"  FontSize="25"  TextWrapping="Wrap" HorizontalAlignment="Center" BorderBrush="LightGray" VerticalAlignment="Center" Background="LightGray" FontWeight="Bold" Text="325" TextChanged="ShelfDistanceT_TextChanged"  />
+                        <TextBox x:Name="ShelfAmountSlide" Grid.Row="3" Grid.Column="2"   FontSize="25" TextWrapping="Wrap" HorizontalAlignment="Center" BorderBrush="LightGray" VerticalAlignment="Center" Background="LightGray" FontWeight="Bold" Text="3" TextChanged="ShelfAmountT_TextChanged"  />
+                        
+                        <!-- Вывод данных -->
+                        
+                    </Grid>
+                </TabItem.Content>
+            </TabItem>
+            <!--Слайд 1400-->
+            <TabItem x:Name="TabSlide14">
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <Rectangle Height="10" Width="10" Fill="Black" />
+                        <TextBlock  FontSize="20" Margin="3">Слайд 1400</TextBlock>
+                    </StackPanel>
+                </TabItem.Header>
+                <TabItem.Content>
+                    <Grid>
+
+                    </Grid>
+                </TabItem.Content>
+            </TabItem>
+
 
         </TabControl>
     </Grid>

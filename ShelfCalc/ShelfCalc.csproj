@@ -81,6 +81,7 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="StellPicture.bmp" />
     <Content Include="StellPicture.png" />
   </ItemGroup>
   <ItemGroup>

@@ -478,5 +478,36 @@ namespace ShelfCalc
                 }
             }
         }
+
+        /// <summary>
+        /// Прячем или показываем вставку для архивных стеллажей
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void MainTab_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            /*
+            if (TabSlide.IsSelected || TabSlide14.IsSelected)
+            {
+                MainGrid.ColumnDefinitions[1].Width = new GridLength(0);
+            }
+            else
+            {
+                MainGrid.ColumnDefinitions[1].Width = new GridLength(1, GridUnitType.Star);
+            }
+            */
+            if (TabSlide.IsSelected || TabSlide14.IsSelected)
+            {
+                VisualGrid.ColumnDefinitions[1].Width = new GridLength(1, GridUnitType.Star);
+                VisualGrid.ColumnDefinitions[0].Width = new GridLength(0, GridUnitType.Star);
+            }
+            else
+            {
+                VisualGrid.ColumnDefinitions[1].Width = new GridLength(0, GridUnitType.Star);
+                VisualGrid.ColumnDefinitions[0].Width = new GridLength(1, GridUnitType.Star);
+            }
+
+
+        }
     }
 }
