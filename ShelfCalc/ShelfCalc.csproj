@@ -70,6 +70,7 @@
     <Compile Include="SeriesL25F.cs" />
     <Compile Include="SeriesT125.cs" />
     <Compile Include="SeriesT25.cs" />
+    <Compile Include="Slide1400.cs" />
     <Compile Include="Stat125.cs" />
     <Compile Include="Stat25.cs" />
     <Compile Include="StellCalc.cs" />

@@ -49,6 +49,7 @@ namespace ShelfCalc
             StandWidthIncrement = 8;
 
             ShelfBlockName = "ShelfSection";
+            ShelfTopBlockName = ShelfBlockName;
             ShelfShiftDistanceX = 4;
             ShelfShiftDistanceY = -30;
             ShelfWidthIncrement = 0;

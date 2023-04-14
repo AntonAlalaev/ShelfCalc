@@ -57,6 +57,12 @@ namespace ShelfCalc
         /// </summary>
         public string ShelfFrontBlockName;
 
+
+        /// <summary>
+        /// Наименование блока для верхней полки на виде сбоку
+        /// </summary>
+        public string ShelfTopBlockName;
+
         /// <summary>
         /// Наименование блока для опоры
         /// </summary>

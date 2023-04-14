@@ -165,6 +165,9 @@ namespace ShelfCalc
             // Полка
             BlockOperation.CloneBlockToDocument(CurrentDocument, PathToSourceFile, Stellar.ShelfBlockName);
 
+            // Верхняя пролка вид в разрезе
+            BlockOperation.CloneBlockToDocument(CurrentDocument, PathToSourceFile, Stellar.ShelfTopBlockName);
+
             // Стойка
             BlockOperation.CloneBlockToDocument(CurrentDocument, PathToSourceFile, Stellar.StandBlockName);
 
@@ -225,20 +228,39 @@ namespace ShelfCalc
             }
 
             // Вставляем полки
-            foreach (double Item in Stellar.ShelfPosArray)
+            for (int i = 0; i < Stellar.ShelfPosArray.Count; i++)
             {
-                BlockOperation.bRefInsertDynamic(CurrentDocument, Stellar.ShelfBlockName, "Width", ShelfWidthClear + Stellar.ShelfWidthIncrement,
-                    InsertionPoint.X + Stellar.ShelfShiftDistanceX, InsertionPoint.Y + Stellar.ShelfShiftDistanceY + Item, InsertionPoint.Z);
+                double Item = Stellar.ShelfPosArray[i];
+                if (i == Stellar.ShelfPosArray.Count - 1)
+                {
+                    BlockOperation.bRefInsertDynamic(CurrentDocument, Stellar.ShelfTopBlockName, "Width", ShelfWidthClear + Stellar.ShelfWidthIncrement,
+                        InsertionPoint.X + Stellar.ShelfShiftDistanceX, InsertionPoint.Y + Stellar.ShelfShiftDistanceY + Item, InsertionPoint.Z);
+
+                }
+                else
+                {
+                    BlockOperation.bRefInsertDynamic(CurrentDocument, Stellar.ShelfBlockName, "Width", ShelfWidthClear + Stellar.ShelfWidthIncrement,
+                        InsertionPoint.X + Stellar.ShelfShiftDistanceX, InsertionPoint.Y + Stellar.ShelfShiftDistanceY + Item, InsertionPoint.Z);
+                }
             }
 
             // если двухсторонний
             if (DoubleSide)
             {
                 // Вставляем полки для второй секции
-                foreach (double Item in Stellar.ShelfPosArray)
+                for (int i = 0; i < Stellar.ShelfPosArray.Count; i++)
                 {
-                    BlockOperation.bRefInsertDynamic(CurrentDocument, Stellar.ShelfBlockName, "Width", ShelfWidthClear + Stellar.ShelfWidthIncrement,
-                        InsertionPoint.X + Stellar.ShelfShiftDistanceX2 - ShelfWidthClear, InsertionPoint.Y + Stellar.ShelfShiftDistanceY + Item, InsertionPoint.Z);
+                    double Item = Stellar.ShelfPosArray[i];
+                    if (i == Stellar.ShelfPosArray.Count - 1)
+                    {
+                        BlockOperation.bRefInsertDynamic(CurrentDocument, Stellar.ShelfTopBlockName, "Width", ShelfWidthClear + Stellar.ShelfWidthIncrement,
+                            InsertionPoint.X + Stellar.ShelfShiftDistanceX2 - ShelfWidthClear, InsertionPoint.Y + Stellar.ShelfShiftDistanceY + Item, InsertionPoint.Z);
+                    }
+                    else
+                    {
+                        BlockOperation.bRefInsertDynamic(CurrentDocument, Stellar.ShelfBlockName, "Width", ShelfWidthClear + Stellar.ShelfWidthIncrement,
+                            InsertionPoint.X + Stellar.ShelfShiftDistanceX2 - ShelfWidthClear, InsertionPoint.Y + Stellar.ShelfShiftDistanceY + Item, InsertionPoint.Z);
+                    }
                 }
             }
 

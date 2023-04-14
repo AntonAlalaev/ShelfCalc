@@ -34,44 +34,54 @@ namespace ShelfCalc
             if (Stell == null) { return; }
 
             // Определяем положение нижней полки
-            LowerShelf.Text = Math.Round(Stell.LowerShelf, 1).ToString();
+            if (!(LowerShelf is null))
+                LowerShelf.Text = Math.Round(Stell.LowerShelf, 1).ToString();
 
             // Определяем расстояние между полками
-            StandHeight.Text = Math.Round(Stell.StandHeight, 1).ToString();
+            if (!(StandHeight is null))
+                StandHeight.Text = Math.Round(Stell.StandHeight, 1).ToString();
 
             // Отображаем количество полок
-            Amount.Text = Stell.Amount.ToString();
+            if (!(Amount is null))
+                Amount.Text = Stell.Amount.ToString();
 
             // Отображаем вычисленную дистанцию
-            Distance.Text = Math.Round(Stell.ShelfDistance, 1).ToString();
+            if (!(Distance is null))
+                Distance.Text = Math.Round(Stell.ShelfDistance, 1).ToString();
 
             // Отображаем высоту верхней полки
-            UpperHeight.Text = Math.Round(Stell.UpperShelf, 1).ToString();
+            if (!(UpperHeight is null))
+                UpperHeight.Text = Math.Round(Stell.UpperShelf, 1).ToString();
+
 
             // Отображаем полную выстоу стеллажа
-            ShelfHeight.Text = Math.Round(Stell.TotalHeight, 1).ToString();
+            if (!(ShelfHeight is null))
+                ShelfHeight.Text = Math.Round(Stell.TotalHeight, 1).ToString();
 
             // Отображаем положение полок
-            ShelfPosition.Children.Clear();
-            TextBlock Block1 = new TextBlock
+            if (!(ShelfPosition is null))
             {
-                Text = Math.Round(Stell.LowerShelf, 1).ToString(),
-                FontSize = 20,
-                HorizontalAlignment = HorizontalAlignment.Center,
-                Foreground = new SolidColorBrush(Colors.AliceBlue)
-            };
-            ShelfPosition.Children.Add(Block1);
-            foreach (double Item in Stell.ShelfPosArray)
-            {
-                TextBlock block = new TextBlock
+                ShelfPosition.Children.Clear();
+                TextBlock Block1 = new TextBlock
                 {
-                    Text = Math.Round(Item, 1).ToString(),
-                    HorizontalAlignment = HorizontalAlignment.Center,
-                    Foreground = new SolidColorBrush(Colors.AliceBlue),
+                    Text = Math.Round(Stell.LowerShelf, 1).ToString(),
                     FontSize = 20,
-                    Margin = new Thickness(0, 5, 0, 0)
+                    HorizontalAlignment = HorizontalAlignment.Center,
+                    Foreground = new SolidColorBrush(Colors.AliceBlue)
                 };
-                ShelfPosition.Children.Add(block);
+                ShelfPosition.Children.Add(Block1);
+                foreach (double Item in Stell.ShelfPosArray)
+                {
+                    TextBlock block = new TextBlock
+                    {
+                        Text = Math.Round(Item, 1).ToString(),
+                        HorizontalAlignment = HorizontalAlignment.Center,
+                        Foreground = new SolidColorBrush(Colors.AliceBlue),
+                        FontSize = 20,
+                        Margin = new Thickness(0, 5, 0, 0)
+                    };
+                    ShelfPosition.Children.Add(block);
+                }
             }
         }
 
@@ -134,6 +144,25 @@ namespace ShelfCalc
                 SeriesL125 It125 = new SeriesL125(ShelfDistanceL.Text, ShelfLowerL.Text, ShelfAmountL.Text);
                 RefreshFilds(It25, ShelfLowerL25, ShelfStandHeightL25, ShelfAmountL25, ShelfDistanceL25, ShelfUpperHeightL25, ShelfHeightL25, ShelfPositionL25);
                 RefreshFilds(It125, ShelfLowerL125, ShelfStandHeightL125, ShelfAmountL125, ShelfDistanceL125, ShelfUpperHeightL125, ShelfHeightL125, ShelfPositionL125);
+            }
+            catch (Exception ex)
+            {
+                ex.ToString();
+            }
+        }
+
+        private void Slide1000ReCalc()
+        {
+            try
+            {
+                if (ShelfDistanceSlide is null || ShelfLowerSlide is null || ShelfAmountSlide is null)
+                {
+                    return;
+                }
+                Slide1400 It25 = new Slide1400(ShelfDistanceSlide.Text, ShelfLowerSlide.Text, ShelfAmountSlide.Text);
+                //SeriesL125 It125 = new SeriesL125(ShelfDistanceL.Text, ShelfLowerL.Text, ShelfAmountL.Text);
+                RefreshFilds(It25, ShelfLowerSlide1000, ShelfStandHeightSlide1000, ShelfAmountSlide1000, ShelfDistanceSlide1000, ShelfUpperHeightSlide1000, null, ShelfPositionSlide1000);
+                //RefreshFilds(It125, ShelfLowerL125, ShelfStandHeightL125, ShelfAmountL125, ShelfDistanceL125, ShelfUpperHeightL125, ShelfHeightL125, ShelfPositionL125);
             }
             catch (Exception ex)
             {
@@ -508,6 +537,49 @@ namespace ShelfCalc
             }
 
 
+        }
+
+        private void ShelfLowerSlide_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            Slide1000ReCalc();
+        }
+
+        private void ShelfDistanceSlide_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            Slide1000ReCalc();
+        }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            double Glubina = 800;
+            try
+            {
+                Glubina = double.Parse(ShelfWidthSlide.Text);
+            }
+            catch (Exception)
+            {
+            }
+
+            double Dlina = 1200;
+            try
+            {
+                Dlina = double.Parse(ShelfLengthSlide.Text);
+            }
+            catch (Exception)
+            {
+            }
+
+            if (Glubina < 800)
+                Glubina = 800;
+
+            if (Dlina < 800)
+                Dlina = 800;
+            if (TabSlide.IsSelected)
+            {
+                this.Hide();
+                DrawStell.Draw(new Slide1400(ShelfDistanceSlide.Text, ShelfLowerSlide.Text, ShelfAmountSlide.Text), Glubina , Dlina, true, false);
+                this.Show();
+            }
         }
     }
 }
