@@ -16,7 +16,7 @@ namespace ShelfCalc
         public Slide1400(string ShelfDistance, string LowerShelf, string Amount) : base(ShelfDistance, LowerShelf, Amount)
         {
             Step = 50;
-            Shift = 28.5;
+            Shift = 38.5; // was 28.5
             StandHeightShift = 6.5;
             this.ShelfDistance = DistanceToStep(this.ShelfDistance, Shift, Step);
             TopShelfHeight = 80;
@@ -46,18 +46,19 @@ namespace ShelfCalc
             StandWidthIncrement = 0;
 
             ShelfBlockName = "ShelfSectionSlide1400";
+            ShelfTopBlockName = "ShelfTopSection";
             ShelfShiftDistanceX = 0;
             ShelfShiftDistanceY = -176.5;
-            ShelfWidthIncrement = 140;
+            ShelfWidthIncrement = 0;
             ShelfShiftDistanceX2 = -ShelfShiftDistanceX;
 
             StandFrontBlockName = "StandSlideFront";
             StandFrontShiftX = -140; //was 140
             ShelfFrontBlockName = "ShelfFrontSlide1400";
-            ShelfFrontShifX = -73.5;
-            ShelfFrontLengthIncrement = 6;
+            ShelfFrontShifX = -73.5; // was -73.5
+            ShelfFrontLengthIncrement = 6; //was 6
             BaseFrontBlockName = "SlideOporaFront1400";
-            BaseFrontShiftX = -100;
+            BaseFrontShiftX = -199.5; // was -100
             BaseFrontIcrement = 399;
 
             ShelfTopFrontBlockName = "ShelfTopFrontSlide1400";
