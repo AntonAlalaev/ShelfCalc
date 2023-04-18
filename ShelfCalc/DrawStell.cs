@@ -102,7 +102,7 @@ namespace ShelfCalc
                 if (i == Stellar.ShelfPosArray.Count - 1)
                 {
                     BlockOperation.bRefInsertDynamic(CurrentDocument, Stellar.ShelfTopFrontBlockName, "Length", ShelfLength,
-                        InsertionPoint.X, InsertionPoint.Y + Stellar.ShelfShiftDistanceY + Item, InsertionPoint.Z);
+                        InsertionPoint.X, InsertionPoint.Y + Stellar.ShelfTopShiftDistanceY + Item, InsertionPoint.Z);
                 }
                 else
                 {
@@ -234,7 +234,7 @@ namespace ShelfCalc
                 if (i == Stellar.ShelfPosArray.Count - 1)
                 {
                     BlockOperation.bRefInsertDynamic(CurrentDocument, Stellar.ShelfTopBlockName, "Width", ShelfWidthClear + Stellar.ShelfWidthIncrement,
-                        InsertionPoint.X + Stellar.ShelfShiftDistanceX, InsertionPoint.Y + Stellar.ShelfShiftDistanceY + Item, InsertionPoint.Z);
+                        InsertionPoint.X + Stellar.ShelfShiftDistanceX, InsertionPoint.Y + Stellar.ShelfTopShiftDistanceY + Item, InsertionPoint.Z);
 
                 }
                 else
@@ -254,7 +254,7 @@ namespace ShelfCalc
                     if (i == Stellar.ShelfPosArray.Count - 1)
                     {
                         BlockOperation.bRefInsertDynamic(CurrentDocument, Stellar.ShelfTopBlockName, "Width", ShelfWidthClear + Stellar.ShelfWidthIncrement,
-                            InsertionPoint.X + Stellar.ShelfShiftDistanceX2 - ShelfWidthClear, InsertionPoint.Y + Stellar.ShelfShiftDistanceY + Item, InsertionPoint.Z);
+                            InsertionPoint.X + Stellar.ShelfShiftDistanceX2 - ShelfWidthClear, InsertionPoint.Y + Stellar.ShelfTopShiftDistanceY + Item, InsertionPoint.Z);
                     }
                     else
                     {

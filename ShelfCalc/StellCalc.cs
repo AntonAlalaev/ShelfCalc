@@ -133,6 +133,13 @@ namespace ShelfCalc
         /// </summary>
         public double ShelfShiftDistanceY;
 
+
+        /// <summary>
+        /// Смещение координат блока верхней полки по Y
+        /// </summary>
+        public double ShelfTopShiftDistanceY;
+
+
         /// <summary>
         /// Смещение вида стойки спереди относительно Х от оси полки
         /// </summary>

@@ -47,8 +47,9 @@ namespace ShelfCalc
 
             ShelfBlockName = "ShelfSectionSlide1400";
             ShelfTopBlockName = "ShelfTopSection";
+            ShelfTopShiftDistanceY = 80;
             ShelfShiftDistanceX = 0;
-            ShelfShiftDistanceY = -176.5;
+            ShelfShiftDistanceY = -171.5;
             ShelfWidthIncrement = 0;
             ShelfShiftDistanceX2 = -ShelfShiftDistanceX;
 
@@ -62,6 +63,7 @@ namespace ShelfCalc
             BaseFrontIcrement = 399;
 
             ShelfTopFrontBlockName = "ShelfTopFrontSlide1400";
+            
             //ShelfTopShiftDistanceX;
             //ShelfTopShiftDistanceY;
 
