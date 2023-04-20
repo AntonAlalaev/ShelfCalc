@@ -648,12 +648,12 @@
                     </Grid>
                 </TabItem.Content>
             </TabItem>
-            <!--Слайд 1400-->
+            <!--Слайд 1000-->
             <TabItem x:Name="TabSlide14">
                 <TabItem.Header>
                     <StackPanel Orientation="Horizontal">
                         <Rectangle Height="10" Width="10" Fill="Black" />
-                        <TextBlock  FontSize="20" Margin="3">Слайд 1400</TextBlock>
+                        <TextBlock  FontSize="20" Margin="3">Слайд 1000</TextBlock>
                     </StackPanel>
                 </TabItem.Header>
                 <TabItem.Content>
