@@ -88,7 +88,7 @@ namespace ShelfCalc
             BlockOperation.bRefInsertDynamic(CurrentDocument, Stellar.StandFrontBlockName, "Height", Stellar.StandHeight,
                 InsertionPoint.X + Stellar.StandFrontShiftX, InsertionPoint.Y + Stellar.StandShiftDistanceY, InsertionPoint.Z);
             BlockOperation.bRefInsertDynamic(CurrentDocument, Stellar.StandFrontBlockName, "Height", Stellar.StandHeight,
-                InsertionPoint.X + ShelfLength - Stellar.ShelfFrontShifX,
+                InsertionPoint.X + ShelfLength - Stellar.ShelfFrontShifX + Stellar.StandFrontShiftCoeff,
                 InsertionPoint.Y + Stellar.StandShiftDistanceY, InsertionPoint.Z);
 
             // Вставляем полки
@@ -101,8 +101,8 @@ namespace ShelfCalc
                 double Item = Stellar.ShelfPosArray[i];
                 if (i == Stellar.ShelfPosArray.Count - 1)
                 {
-                    BlockOperation.bRefInsertDynamic(CurrentDocument, Stellar.ShelfTopFrontBlockName, "Length", ShelfLength,
-                        InsertionPoint.X, InsertionPoint.Y + Stellar.ShelfTopShiftDistanceY + Item, InsertionPoint.Z);
+                    BlockOperation.bRefInsertDynamic(CurrentDocument, Stellar.ShelfTopFrontBlockName, "Length", ShelfLength+Stellar.ShelfTopFrontLengthIncrement,
+                        InsertionPoint.X+Stellar.ShelfTopFrontShifX, InsertionPoint.Y + Stellar.ShelfTopShiftDistanceY + Item, InsertionPoint.Z);
                 }
                 else
                 {
@@ -133,6 +133,26 @@ namespace ShelfCalc
             pt1 = new Point3d(InsertionPoint.X + ShelfLength / 2 - 200,
                 InsertionPoint.Y + Stellar.ShelfShiftDistanceY + Stellar.LowerShelf + Stellar.ShelfHeight, InsertionPoint.Z);
 
+
+            for (int i = 0; i < Stellar.ShelfPosArray.Count; i++)
+            {
+                double Item = Stellar.ShelfPosArray[i];
+                if (i != Stellar.ShelfPosArray.Count - 1)
+                {
+                    pt2 = new Point3d(InsertionPoint.X + ShelfLength / 2 - 200,
+                    InsertionPoint.Y + Stellar.ShelfShiftDistanceY + Item, InsertionPoint.Z);
+                    DrawVerticalDimension(CurrentDocument, pt1, pt2, pt1.X + 200);
+                    pt1 = new Point3d(pt2.X, pt2.Y + Stellar.ShelfHeight, pt2.Z);
+                }
+                else
+                {
+                    pt2 = new Point3d(InsertionPoint.X + ShelfLength / 2 - 200,
+                    InsertionPoint.Y + Stellar.ShelfTopShiftDistanceY + Item, InsertionPoint.Z);
+                    DrawVerticalDimension(CurrentDocument, pt1, pt2, pt1.X + 200);
+                }
+            }
+
+            /*
             foreach (double Item in Stellar.ShelfPosArray)
             {
                 pt2 = new Point3d(InsertionPoint.X + ShelfLength / 2 - 200,
@@ -140,6 +160,7 @@ namespace ShelfCalc
                 DrawVerticalDimension(CurrentDocument, pt1, pt2, pt1.X + 200);
                 pt1 = new Point3d(pt2.X, pt2.Y + Stellar.ShelfHeight, pt2.Z);
             }
+            */
 
         }
 
@@ -274,6 +295,25 @@ namespace ShelfCalc
 
             Point3d pt2;
 
+            for (int i = 0; i < Stellar.ShelfPosArray.Count; i++)
+            {
+                double Item = Stellar.ShelfPosArray[i];
+
+                if (i != Stellar.ShelfPosArray.Count - 1)
+                {
+                    pt2 = new Point3d(InsertionPoint.X + Stellar.ShelfShiftDistanceX + ShelfWidthClear + Stellar.ShelfWidthIncrement,
+                    InsertionPoint.Y + Stellar.ShelfShiftDistanceY + Item, InsertionPoint.Z);
+                    DrawVerticalDimension(CurrentDocument, pt1, pt2, pt1.X + 200);
+                    pt1 = new Point3d(pt2.X, pt2.Y + Stellar.ShelfHeight, pt2.Z);
+                }
+                else
+                {
+                    pt2 = new Point3d(InsertionPoint.X + Stellar.ShelfShiftDistanceX + ShelfWidthClear + Stellar.ShelfWidthIncrement,
+                   InsertionPoint.Y + Stellar.ShelfTopShiftDistanceY + Item, InsertionPoint.Z);
+                    DrawVerticalDimension(CurrentDocument, pt1, pt2, pt1.X + 200);
+                }
+            }
+            /*
             foreach (double Item in Stellar.ShelfPosArray)
             {
                 pt2 = new Point3d(InsertionPoint.X + Stellar.ShelfShiftDistanceX + ShelfWidthClear + Stellar.ShelfWidthIncrement,
@@ -281,7 +321,7 @@ namespace ShelfCalc
                 DrawVerticalDimension(CurrentDocument, pt1, pt2, pt1.X + 200);
                 pt1 = new Point3d(pt2.X, pt2.Y + Stellar.ShelfHeight, pt2.Z);
             }
-
+            */
             // рисуем размеры стойки 
             pt1 = new Point3d(InsertionPoint.X + Stellar.StandShiftDistanceX + ShelfWidthClear + Stellar.StandWidthIncrement,
                 InsertionPoint.Y + Stellar.StandShiftDistanceY, InsertionPoint.Z);

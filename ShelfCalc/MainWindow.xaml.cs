@@ -151,7 +151,7 @@ namespace ShelfCalc
             }
         }
 
-        private void Slide1000ReCalc()
+        private void Slide1400ReCalc()
         {
             try
             {
@@ -229,6 +229,14 @@ namespace ShelfCalc
             ShelfLowerT.Text = "210";
             ShelfDistanceT.Text = "345";
             ShelfAmountT.Text = "5";
+
+            ShelfLowerSlide.Text = "223";
+            ShelfDistanceSlide.Text = "350";
+            ShelfAmountSlide.Text = "3";
+
+
+
+
         }
 
         private void ShelfLowerL_TextChanged(object sender, TextChangedEventArgs e)
@@ -541,12 +549,17 @@ namespace ShelfCalc
 
         private void ShelfLowerSlide_TextChanged(object sender, TextChangedEventArgs e)
         {
-            Slide1000ReCalc();
+            Slide1400ReCalc();
         }
 
         private void ShelfDistanceSlide_TextChanged(object sender, TextChangedEventArgs e)
         {
-            Slide1000ReCalc();
+            Slide1400ReCalc();
+        }
+
+        private void ShelfAmountSlide_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            Slide1400ReCalc();
         }
 
         private void Button_Click_2(object sender, RoutedEventArgs e)
@@ -581,5 +594,7 @@ namespace ShelfCalc
                 this.Show();
             }
         }
+
+        
     }
 }

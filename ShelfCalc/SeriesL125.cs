@@ -9,6 +9,8 @@ namespace ShelfCalc
             // Шаг перфорации стойки
             Step = 12.5;
 
+            MinimalShelfDistance = 20;
+
             // Смещение верха полки относительно перфорации
             Shift = 5;
 
@@ -50,9 +52,9 @@ namespace ShelfCalc
 
             ShelfBlockName = "ShelfSection";
             ShelfTopBlockName = ShelfBlockName;
+            ShelfShiftDistanceY = -30;
             ShelfTopShiftDistanceY = ShelfShiftDistanceY;
             ShelfShiftDistanceX = 4;
-            ShelfShiftDistanceY = -30;
             ShelfWidthIncrement = 0;
             ShelfShiftDistanceX2 = -8;
 
@@ -65,6 +67,9 @@ namespace ShelfCalc
             BaseFrontShiftX = -52.5;
             BaseFrontIcrement = 105;
             ShelfTopFrontBlockName = "ShelfTopFront";
+            ShelfTopFrontShifX = ShelfFrontShifX;
+            ShelfTopFrontLengthIncrement = ShelfFrontLengthIncrement;
+            StandFrontShiftCoeff = 0;
 
         }
 

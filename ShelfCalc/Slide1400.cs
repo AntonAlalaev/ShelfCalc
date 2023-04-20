@@ -13,16 +13,23 @@ namespace ShelfCalc
         /// </summary>
         public double TopShelfHeight;
 
+        /// <summary>
+        /// Введенное расстояние между полками - необходимо для расчета положения верхней полки
+        /// </summary>
+        public double EnterredShelfDistance;
+
         public Slide1400(string ShelfDistance, string LowerShelf, string Amount) : base(ShelfDistance, LowerShelf, Amount)
         {
             Step = 50;
-            Shift = 38.5; // was 28.5
-            StandHeightShift = 6.5;
-            this.ShelfDistance = DistanceToStep(this.ShelfDistance, Shift, Step);
+            Shift = 21.5; // was 28.5
+            StandHeightShift = 5;
             TopShelfHeight = 80;
             MinimalLowerShelf = 223.5;
             ShelfHeight = 171.5;
+            MinimalShelfDistance = 128.5;
             SecondShelfPositionOverride = MinimalLowerShelf;
+            EnterredShelfDistance = this.ShelfDistance;
+            this.ShelfDistance = DistanceToStep(this.ShelfDistance, Shift, Step);
             GetLowerShelfCalc();
             ShelfPosArray = new List<double>();
 
@@ -31,7 +38,7 @@ namespace ShelfCalc
             {
                 this.Amount = 1;
             }
-            GetShelfCalc();
+
             BaseBlockName = "SlideOpora";
             BaseShiftDistanceX = -19;
             BaseShiftDistanceX2 = BaseShiftDistanceX;
@@ -47,11 +54,13 @@ namespace ShelfCalc
 
             ShelfBlockName = "ShelfSectionSlide1400";
             ShelfTopBlockName = "ShelfTopSection";
-            ShelfTopShiftDistanceY = 80;
+            ShelfTopShiftDistanceY = -80;
             ShelfShiftDistanceX = 0;
             ShelfShiftDistanceY = -171.5;
             ShelfWidthIncrement = 0;
             ShelfShiftDistanceX2 = -ShelfShiftDistanceX;
+
+
 
             StandFrontBlockName = "StandSlideFront";
             StandFrontShiftX = -140; //was 140
@@ -63,13 +72,38 @@ namespace ShelfCalc
             BaseFrontIcrement = 399;
 
             ShelfTopFrontBlockName = "ShelfTopFrontSlide1400";
-            
+            ShelfTopFrontShifX = -73.5;
+            ShelfTopFrontLengthIncrement = 6;
+            StandFrontShiftCoeff = -18.5;
+
+            GetShelfCalc();
             //ShelfTopShiftDistanceX;
             //ShelfTopShiftDistanceY;
 
 
 
         }
+
+        /*
+        public override double DistanceToStep(double Distance, double Shift, double Step)
+        {
+            if (Distance <= MinimalShelfDistance)
+            {
+                return MinimalShelfDistance;
+            }
+            double CalcStepToRet = MinimalShelfDistance; // was 0
+
+            while (true)
+            {
+                CalcStepToRet += Step;
+                if (Math.Round(CalcStepToRet, 1) >= Distance)
+                {
+                    return CalcStepToRet;
+                }
+            }
+        }
+        */
+
 
         /// <summary>
         /// Рассчитиывает положение полок по заданному шагу перфорации
@@ -91,15 +125,29 @@ namespace ShelfCalc
                         // положения обычных полок
                         ShelfPosArray.Add(StepPosition(ShelfPosArray[i - 1] + ShelfDistanceWithHeight, LowerShelf, Step));
                     else
-                        // положение верхней полки, т.к. у нее другая толщина
-                        ShelfPosArray.Add(StepPosition(ShelfPosArray[i - 1] + ShelfDistance + TopShelfHeight, LowerShelf, Step));
+                    {
+                        // положение верхней полки, т.к. у нее другая толщина и позиционирование
+                        // позиция верхней полки относительно стандартной полки с первой установки равна 51,5 мм + толщина верхней полки 80 мм
+                        double UpperShelfIncrease = 51.5 + 80;
+                        //double CurrentPos = ShelfPosArray[i - 1];
+                        while (true)
+                        {
+                            if (UpperShelfIncrease>= EnterredShelfDistance + TopShelfHeight)
+                                break;
+                            UpperShelfIncrease += Step;
+                        }
+                        ShelfPosArray.Add(UpperShelfIncrease + ShelfPosArray[i - 1]);
+
+                        //ShelfPosArray.Add(StepPosition(ShelfPosArray[i - 1] + ShelfDistance + TopShelfHeight, LowerShelf, Step));
+                    }
                 }
             }
-            
+
             UpperShelf = ShelfPosArray[ShelfPosArray.Count - 1];
             TotalHeight = UpperShelf;
             StandHeight = UpperShelf - StandHeightShift;
         }
+
 
     }
 

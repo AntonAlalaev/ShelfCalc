@@ -246,24 +246,38 @@ namespace ShelfCalc
         /// </summary>
         internal double ShelfHeight;
 
+        /// <summary>
+        /// Минимальное расстояние между полками
+        /// </summary>
+        internal double MinimalShelfDistance;
+
+
         #endregion
 
 
         // Общие расчетные процедуры
-        static internal double DistanceToStep(double Distance, double Shift, double Step)
+
+        /// <summary>
+        /// Определеяет расстояние между полками согласно шагу
+        /// </summary>
+        /// <param name="Distance">расстояние между полками</param>
+        /// <param name="Shift">Смещение</param>
+        /// <param name="Step">Шаг</param>
+        /// <returns></returns>
+        public virtual double DistanceToStep(double Distance, double Shift, double Step)
         {
-            if (Distance <= 0)
+            if (Distance <= MinimalShelfDistance)
             {
-                return Step - Shift;
+                return MinimalShelfDistance;
             }
-            double CalcStepToRet = 0;
+            double CalcStepToRet = MinimalShelfDistance; // was 0
 
             while (true)
             {
                 CalcStepToRet += Step;
-                if (Math.Round(CalcStepToRet - Shift, 1) >= Distance)
+                if (Math.Round(CalcStepToRet , 1) >= Distance)
                 {
-                    return CalcStepToRet - Shift;
+                    return CalcStepToRet;
                 }
             }
         }
@@ -367,6 +381,20 @@ namespace ShelfCalc
             }
         }
 
+        /// <summary>
+        /// Смещение блока верхней полки вида спереди по Х
+        /// </summary>
+        public double ShelfTopFrontShifX;
+
+        /// <summary>
+        /// Приращение длины блока верхней полки вид спереди
+        /// </summary>
+        public double ShelfTopFrontLengthIncrement;
+
+        /// <summary>
+        /// Сещение второй стойки на виде спереди
+        /// </summary>
+        public double StandFrontShiftCoeff;
     }
 
 }

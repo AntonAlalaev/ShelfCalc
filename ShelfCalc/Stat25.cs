@@ -9,6 +9,7 @@ namespace ShelfCalc
             Step = 25;
             Shift = 5;
             StandHeightShift = 10;
+            MinimalShelfDistance = 20;
             this.ShelfDistance = DistanceToStep(this.ShelfDistance, Shift, Step);
             MinimalLowerShelf = 42;
             ShelfHeight = 30;
@@ -54,7 +55,9 @@ namespace ShelfCalc
             BaseFrontIcrement = 43;
 
             ShelfTopFrontBlockName = "ShelfTopFront";
-
+            ShelfTopFrontShifX = ShelfFrontShifX;
+            ShelfTopFrontLengthIncrement = ShelfFrontLengthIncrement;
+            StandFrontShiftCoeff = 0;
 
 
 
