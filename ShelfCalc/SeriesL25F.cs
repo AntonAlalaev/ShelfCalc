@@ -71,6 +71,8 @@ namespace ShelfCalc
             ShelfTopFrontShifX = ShelfFrontShifX;
             ShelfTopFrontLengthIncrement = ShelfFrontLengthIncrement;
             StandFrontShiftCoeff = 0;
+            LowerShelfBlockName = ShelfBlockName;
+            LowerShelfFrontBlockName = ShelfFrontBlockName;
         }
     }
 }

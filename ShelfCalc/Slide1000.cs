@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ShelfCalc
 {
-    internal class Slide1400 : StellCalc
+    internal class Slide1000:StellCalc
     {
         /// <summary>
         /// Высота верхней полки (зазор от рабочей поверхности до нижней части
@@ -18,21 +18,21 @@ namespace ShelfCalc
         /// </summary>
         public double EnterredShelfDistance;
 
-        public Slide1400(string ShelfDistance, string LowerShelf, string Amount) : base(ShelfDistance, LowerShelf, Amount)
+        public Slide1000(string ShelfDistance, string LowerShelf, string Amount) : base(ShelfDistance, LowerShelf, Amount)
         {
             Step = 50;
             Shift = 21.5; // was 28.5
             StandHeightShift = 5;
             TopShelfHeight = 80;
-            MinimalLowerShelf = 223.5;
-            ShelfHeight = 171.5;
-            MinimalShelfDistance = 128.5;
+            MinimalLowerShelf = 243;
+            ShelfHeight = 80;
+            MinimalShelfDistance = 120;
             SecondShelfPositionOverride = MinimalLowerShelf;
             EnterredShelfDistance = this.ShelfDistance;
-            this.ShelfDistance = DistanceToStep(this.ShelfDistance, Shift, Step);
+            
             GetLowerShelfCalc();
             ShelfPosArray = new List<double>();
-
+            this.ShelfDistance = DistanceToStep(this.ShelfDistance, Shift, Step);
 
             if (this.Amount <= 0)
             {
@@ -52,11 +52,11 @@ namespace ShelfCalc
             StandShiftDistanceY = 4;
             StandWidthIncrement = 0;
 
-            ShelfBlockName = "ShelfSectionSlide1400";
+            ShelfBlockName = "ShelfSectionSlide1000";
             ShelfTopBlockName = "ShelfTopSection";
             ShelfTopShiftDistanceY = -80;
             ShelfShiftDistanceX = 0;
-            ShelfShiftDistanceY = -171.5;
+            ShelfShiftDistanceY = -80;
             ShelfWidthIncrement = 0;
             ShelfShiftDistanceX2 = -ShelfShiftDistanceX;
 
@@ -64,9 +64,9 @@ namespace ShelfCalc
 
             StandFrontBlockName = "StandSlideFront";
             StandFrontShiftX = -140; //was 140
-            ShelfFrontBlockName = "ShelfFrontSlide1400";
+            ShelfFrontBlockName = "ShelfFrontSlide1000";
             ShelfFrontShifX = -73.5; // was -73.5
-            ShelfFrontLengthIncrement = 6; //was 6
+            ShelfFrontLengthIncrement = 6+14; //was 6
             BaseFrontBlockName = "SlideOporaFront1400";
             BaseFrontShiftX = -199.5; // was -100
             BaseFrontIcrement = 399;
@@ -74,10 +74,10 @@ namespace ShelfCalc
             ShelfTopFrontBlockName = "ShelfTopFrontSlide1400";
             ShelfTopFrontShifX = -73.5;
             ShelfTopFrontLengthIncrement = 6;
-            StandFrontShiftCoeff = -18.5;
-            LowerShelfBlockName = ShelfBlockName;
-            LowerShelfFrontBlockName = ShelfFrontBlockName;
+            StandFrontShiftCoeff = -18.5; // was -18.5;
 
+            LowerShelfBlockName = "ShelfSectionBottomSlide1000";
+            LowerShelfFrontBlockName = "ShelfFrontBottomSlide1000";
 
             GetShelfCalc();
             //ShelfTopShiftDistanceX;
@@ -131,11 +131,11 @@ namespace ShelfCalc
                     {
                         // положение верхней полки, т.к. у нее другая толщина и позиционирование
                         // позиция верхней полки относительно стандартной полки с первой установки равна 51,5 мм + толщина верхней полки 80 мм
-                        double UpperShelfIncrease = 51.5 + 80;
+                        double UpperShelfIncrease = 25+7 + 80;
                         //double CurrentPos = ShelfPosArray[i - 1];
                         while (true)
                         {
-                            if (UpperShelfIncrease>= EnterredShelfDistance + TopShelfHeight)
+                            if (UpperShelfIncrease >= EnterredShelfDistance + TopShelfHeight)
                                 break;
                             UpperShelfIncrease += Step;
                         }
@@ -151,7 +151,5 @@ namespace ShelfCalc
             StandHeight = UpperShelf - StandHeightShift;
         }
 
-
     }
-
 }

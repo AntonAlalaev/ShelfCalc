@@ -170,6 +170,27 @@ namespace ShelfCalc
             }
         }
 
+        private void Slide1000ReCalc()
+        {
+            try
+            {
+                if (ShelfDistanceSlide10000 is null || ShelfLowerSlide10000  is null || ShelfAmountSlide10000 is null)
+                {
+                    return;
+                }
+                //ShelfLowerSlide100000
+                Slide1000 It25 = new Slide1000(ShelfDistanceSlide10000.Text, ShelfLowerSlide10000.Text, ShelfAmountSlide10000.Text);
+                //SeriesL125 It125 = new SeriesL125(ShelfDistanceL.Text, ShelfLowerL.Text, ShelfAmountL.Text);
+                RefreshFilds(It25, ShelfLowerSlide100000, ShelfStandHeightSlide10000, ShelfAmountSlide100000, ShelfDistanceSlide100000, ShelfUpperHeightSlide10000, null, ShelfPositionSlide10000);
+                //RefreshFilds(It125, ShelfLowerL125, ShelfStandHeightL125, ShelfAmountL125, ShelfDistanceL125, ShelfUpperHeightL125, ShelfHeightL125, ShelfPositionL125);
+            }
+            catch (Exception ex)
+            {
+                ex.ToString();
+            }
+        }
+
+
         /// <summary>
         /// Пересчет стационаров
         /// </summary>
@@ -234,8 +255,10 @@ namespace ShelfCalc
             ShelfDistanceSlide.Text = "350";
             ShelfAmountSlide.Text = "3";
 
-
-
+            //if (ShelfDistanceSlide10000 is null || ShelfLowerSlide10000 is null || ShelfAmountSlide10000 is null)
+            ShelfDistanceSlide10000.Text = "110";
+            ShelfLowerSlide10000.Text = "239";
+            ShelfAmountSlide10000.Text = "3";
 
         }
 
@@ -593,8 +616,29 @@ namespace ShelfCalc
                 DrawStell.Draw(new Slide1400(ShelfDistanceSlide.Text, ShelfLowerSlide.Text, ShelfAmountSlide.Text), Glubina , Dlina, true, false);
                 this.Show();
             }
+            if (TabSlide14.IsSelected)
+            {
+                this.Hide();
+                //ShelfDistanceSlide10000 is null || ShelfLowerSlide10000  is null || ShelfAmountSlide10000
+                DrawStell.Draw(new Slide1000(ShelfDistanceSlide10000.Text, ShelfLowerSlide10000.Text, ShelfAmountSlide10000.Text), Glubina, Dlina, true, false);
+                this.Show();
+
+            }
         }
 
-        
+        private void ShelfLowerSlide10000_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            Slide1000ReCalc();
+        }
+
+        private void ShelfDistanceSlide10000_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            Slide1000ReCalc();
+        }
+
+        private void ShelfAmountSlide10000_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            Slide1000ReCalc();
+        }
     }
 }

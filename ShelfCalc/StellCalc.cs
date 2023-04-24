@@ -79,6 +79,16 @@ namespace ShelfCalc
         public string ShelfTopFrontBlockName;
 
         /// <summary>
+        /// Наименование блока нижней полки
+        /// </summary>
+        public string LowerShelfBlockName;
+
+        /// <summary>
+        /// Наименование блока нижней полки вид спереди
+        /// </summary>
+        public string LowerShelfFrontBlockName;
+
+        /// <summary>
         /// Смещение координат блока опоры по X
         /// </summary>
         public double BaseShiftDistanceX;
