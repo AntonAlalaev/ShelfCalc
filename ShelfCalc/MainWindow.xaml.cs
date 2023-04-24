@@ -252,12 +252,11 @@ namespace ShelfCalc
             ShelfAmountT.Text = "5";
 
             ShelfLowerSlide.Text = "223";
-            ShelfDistanceSlide.Text = "350";
+            ShelfDistanceSlide.Text = "430";
             ShelfAmountSlide.Text = "3";
 
-            //if (ShelfDistanceSlide10000 is null || ShelfLowerSlide10000 is null || ShelfAmountSlide10000 is null)
-            ShelfDistanceSlide10000.Text = "110";
-            ShelfLowerSlide10000.Text = "239";
+            ShelfLowerSlide10000.Text = "243";
+            ShelfDistanceSlide10000.Text = "430";
             ShelfAmountSlide10000.Text = "3";
 
         }
