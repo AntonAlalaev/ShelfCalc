@@ -1,5 +1,7 @@
 ﻿using Autodesk.AutoCAD.ApplicationServices;
 using Autodesk.AutoCAD.Runtime;
+using System.Globalization;
+using System.Linq;
 
 namespace ShelfCalc
 {
@@ -22,7 +24,6 @@ namespace ShelfCalc
         public static void ShelfStart()
         {
             // получаем путь к сборке
-            /*
             System.IO.FileStream str = System.Reflection.Assembly.GetExecutingAssembly().GetFile("ShelfCalc.dll");
             string path1 = str.Name;
             int Index = 0;
@@ -41,7 +42,6 @@ namespace ShelfCalc
 
             var oldCult = System.Threading.Thread.CurrentThread.CurrentCulture = CultureInfo.GetCultureInfo("ru");
             CurrentDocument = Application.DocumentManager.MdiActiveDocument;
-            */
             MainWindow wind = new MainWindow();
             //Application.ShowModalWindow(wind);
             Application.ShowModelessWindow(wind);
