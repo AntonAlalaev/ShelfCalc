@@ -174,7 +174,7 @@ namespace ShelfCalc
         {
             try
             {
-                if (ShelfDistanceSlide10000 is null || ShelfLowerSlide10000  is null || ShelfAmountSlide10000 is null)
+                if (ShelfDistanceSlide10000 is null || ShelfLowerSlide10000 is null || ShelfAmountSlide10000 is null)
                 {
                     return;
                 }
@@ -235,7 +235,7 @@ namespace ShelfCalc
         /// <param name="e"></param>
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            ShelfLowerStat.Text = "42";
+            ShelfLowerStat.Text = "67";
             ShelfDistanceStat.Text = "345";
             ShelfAmountStat.Text = "5";
 
@@ -612,7 +612,7 @@ namespace ShelfCalc
             if (TabSlide.IsSelected)
             {
                 this.Hide();
-                DrawStell.Draw(new Slide1400(ShelfDistanceSlide.Text, ShelfLowerSlide.Text, ShelfAmountSlide.Text), Glubina , Dlina, true, false);
+                DrawStell.Draw(new Slide1400(ShelfDistanceSlide.Text, ShelfLowerSlide.Text, ShelfAmountSlide.Text), Glubina, Dlina, true, false);
                 this.Show();
             }
             if (TabSlide14.IsSelected)

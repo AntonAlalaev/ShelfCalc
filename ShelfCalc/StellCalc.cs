@@ -285,7 +285,7 @@ namespace ShelfCalc
             while (true)
             {
                 CalcStepToRet += Step;
-                if (Math.Round(CalcStepToRet , 1) >= Distance)
+                if (Math.Round(CalcStepToRet, 1) >= Distance)
                 {
                     return CalcStepToRet;
                 }

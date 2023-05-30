@@ -13,7 +13,7 @@ namespace ShelfCalc
         /// </summary>
         /// <param name="doc">Текущий документ Автокада</param>
         /// <returns>точка</returns>
-        public static Point3d getPoint(Document doc)
+        public static Point3d GetPoint(Document doc)
         {
             Editor ed = doc.Editor;
             PromptPointResult ptRes = ed.GetPoint("Укажите точку вставки");
@@ -33,7 +33,7 @@ namespace ShelfCalc
         /// <param name="X">Координата X</param>
         /// <param name="Y">Координата Y</param>
         /// <param name="Z">Координата Z</param>
-        public static void bRefInsert(Document doc, string blockName, int X, int Y, int Z = 0)
+        public static void BRefInsert(Document doc, string blockName, int X, int Y, int Z = 0)
         {
             Database db = doc.Database;
             Point3d InsertionPoint = new Point3d(X, Y, Z);
@@ -79,7 +79,7 @@ namespace ShelfCalc
         /// <param name="X"></param>
         /// <param name="Y"></param>
         /// <param name="Z"></param>
-        public static void bRefInsertDynamic(Document doc, string blockName, string PropName, double PropValue, double X, double Y, double Z = 0)
+        public static void BRefInsertDynamic(Document doc, string blockName, string PropName, double PropValue, double X, double Y, double Z = 0)
         {
             Database db = doc.Database;
             Editor ed = doc.Editor;
@@ -122,9 +122,9 @@ namespace ShelfCalc
         /// <param name="blockName">Имя блока</param>
         /// <param name="Parametrs">Коллекция с параметерами <string> - Имя параметра, <double> - Значение параметра</param>
         /// <param name="InsertionPoint">Точка вставки </param>
-        public static void bRefInsertDynamic(Document doc, string blockName, Dictionary<string, double> Parametrs, Point3d InsertionPoint)
+        public static void BRefInsertDynamic(Document doc, string blockName, Dictionary<string, double> Parametrs, Point3d InsertionPoint)
         {
-            bRefInsertDynamic(doc, blockName, Parametrs, InsertionPoint.X, InsertionPoint.Y, InsertionPoint.Z);
+            BRefInsertDynamic(doc, blockName, Parametrs, InsertionPoint.X, InsertionPoint.Y, InsertionPoint.Z);
         }
 
 
@@ -137,7 +137,7 @@ namespace ShelfCalc
         /// <param name="X"></param>
         /// <param name="Y"></param>
         /// <param name="Z"></param>
-        public static void bRefInsertDynamic(Document doc, string blockName, Dictionary<string, double> Parametrs, double X, double Y, double Z = 0)
+        public static void BRefInsertDynamic(Document doc, string blockName, Dictionary<string, double> Parametrs, double X, double Y, double Z = 0)
         {
             Database db = doc.Database;
             Editor ed = doc.Editor;

@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace ShelfCalc
 {
-    internal class Slide1000:StellCalc
+    internal class Slide1000 : StellCalc
     {
         /// <summary>
         /// Высота верхней полки (зазор от рабочей поверхности до нижней части
@@ -29,7 +25,7 @@ namespace ShelfCalc
             MinimalShelfDistance = 120;
             SecondShelfPositionOverride = MinimalLowerShelf;
             EnterredShelfDistance = this.ShelfDistance;
-            
+
             GetLowerShelfCalc();
             ShelfPosArray = new List<double>();
             this.ShelfDistance = DistanceToStep(this.ShelfDistance, Shift, Step);
@@ -66,7 +62,7 @@ namespace ShelfCalc
             StandFrontShiftX = -140; //was 140
             ShelfFrontBlockName = "ShelfFrontSlide1000";
             ShelfFrontShifX = -73.5; // was -73.5
-            ShelfFrontLengthIncrement = 6+14; //was 6
+            ShelfFrontLengthIncrement = 6 + 14; //was 6
             BaseFrontBlockName = "SlideOporaFront1400";
             BaseFrontShiftX = -199.5; // was -100
             BaseFrontIcrement = 399;
@@ -131,7 +127,7 @@ namespace ShelfCalc
                     {
                         // положение верхней полки, т.к. у нее другая толщина и позиционирование
                         // позиция верхней полки относительно стандартной полки с первой установки равна 51,5 мм + толщина верхней полки 80 мм
-                        double UpperShelfIncrease = 25+7 + 80;
+                        double UpperShelfIncrease = 25 + 7 + 80;
                         //double CurrentPos = ShelfPosArray[i - 1];
                         while (true)
                         {

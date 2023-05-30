@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace ShelfCalc
 {
@@ -135,7 +131,7 @@ namespace ShelfCalc
                         //double CurrentPos = ShelfPosArray[i - 1];
                         while (true)
                         {
-                            if (UpperShelfIncrease>= EnterredShelfDistance + TopShelfHeight)
+                            if (UpperShelfIncrease >= EnterredShelfDistance + TopShelfHeight)
                                 break;
                             UpperShelfIncrease += Step;
                         }

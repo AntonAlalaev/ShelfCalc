@@ -1,7 +1,5 @@
 ﻿using Autodesk.AutoCAD.ApplicationServices;
 using Autodesk.AutoCAD.Runtime;
-using System.Globalization;
-using System.Linq;
 
 namespace ShelfCalc
 {
