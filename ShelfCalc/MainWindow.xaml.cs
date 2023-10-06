@@ -625,6 +625,7 @@ namespace ShelfCalc
             }
         }
 
+        // 
         private void ShelfLowerSlide10000_TextChanged(object sender, TextChangedEventArgs e)
         {
             Slide1000ReCalc();
@@ -638,6 +639,24 @@ namespace ShelfCalc
         private void ShelfAmountSlide10000_TextChanged(object sender, TextChangedEventArgs e)
         {
             Slide1000ReCalc();
+        }
+
+        // меняется высота нижней полки
+        private void ShelfLowerSGS_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        // меняетмя расстояние между полками
+        private void ShelfDistanceSGS_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        //меняется количество полок
+        private void ShelfAmountSGS_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
         }
     }
 }

@@ -736,6 +736,94 @@
                 </TabItem.Content>
             </TabItem>
 
+            <!--SGS-->
+            <TabItem x:Name="TabSGS">
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <Rectangle Height="10" Width="10" Fill="Black" />
+                        <TextBlock  FontSize="20" Margin="3">СГС</TextBlock>
+                    </StackPanel>
+                </TabItem.Header>
+                <TabItem.Content>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="0.5*"/>
+                            <ColumnDefinition Width="3*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="0.7*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <!-- Заполнение Квадаратов и заливка  -->
+                        <Rectangle Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" Fill="Black" Stroke="Lavender" StrokeThickness="1"/>
+                        <Rectangle Grid.Row="0" Grid.Column="3" Fill="Black" Stroke="Lavender" StrokeThickness="1"/>
+                        <Rectangle Grid.Row="0" Grid.Column="4" Fill="Black" Stroke="Lavender" StrokeThickness="1"/>
+
+                        <Rectangle Grid.Row="1" Grid.Column="0" Fill="Black" Stroke="Lavender" StrokeThickness="1"/>
+                        <Rectangle Grid.Row="2" Grid.Column="0" Fill="Black" Stroke="Lavender" StrokeThickness="1"/>
+                        <Rectangle Grid.Row="3" Grid.Column="0" Fill="Black" Stroke="Lavender" StrokeThickness="1"/>
+                        <Rectangle Grid.Row="4" Grid.Column="0" Fill="Black" Stroke="Lavender" StrokeThickness="1"/>
+                        <Rectangle Grid.Row="5" Grid.Column="0" Fill="Black" Stroke="Lavender" StrokeThickness="1"/>
+
+                        <Rectangle Grid.Row="1" Grid.Column="1" Fill="Black" Stroke="Lavender" StrokeThickness="1"/>
+                        <Rectangle Grid.Row="2" Grid.Column="1" Fill="Black" Stroke="Lavender" StrokeThickness="1"/>
+                        <Rectangle Grid.Row="3" Grid.Column="1" Fill="Black" Stroke="Lavender" StrokeThickness="1"/>
+                        <Rectangle Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="2" Fill="Black" Stroke="Lavender" StrokeThickness="1"/>
+                        <Rectangle Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="2" Fill="Black" Stroke="Lavender" StrokeThickness="1"/>
+
+                        <Rectangle Grid.Row="1" Grid.Column="2" Fill="Black" Stroke="Lavender" StrokeThickness="1"/>
+                        <Rectangle Grid.Row="2" Grid.Column="2" Fill="Black" Stroke="Lavender" StrokeThickness="1"/>
+                        <Rectangle Grid.Row="3" Grid.Column="2" Fill="Black" Stroke="Lavender" StrokeThickness="1"/>
+
+                        <Rectangle Grid.Row="1" Grid.Column="3" Fill="Black" Stroke="Lavender" StrokeThickness="1"/>
+                        <Rectangle Grid.Row="2" Grid.Column="3" Fill="Black" Stroke="Lavender" StrokeThickness="1"/>
+                        <Rectangle Grid.Row="3" Grid.Column="3" Fill="Black" Stroke="Lavender" StrokeThickness="1"/>
+                        <Rectangle Grid.Row="4" Grid.Column="3" Fill="Black" Stroke="Lavender" StrokeThickness="1"/>
+                        <Rectangle Grid.Row="5" Grid.Column="3" Fill="Black" Stroke="Lavender" StrokeThickness="1"/>
+                        <Rectangle Grid.Row="1" Grid.Column="4" Grid.RowSpan="5" Fill="Black" Stroke="Lavender" StrokeThickness="1"/>
+
+                        <Rectangle Fill="LightGray" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="2" Grid.Row="1"/>
+                        <Rectangle Fill="LightGray" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="2" Grid.Row="2"/>
+                        <Rectangle Fill="LightGray" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="2" Grid.Row="3"/>
+
+                        <TextBlock Grid.Row="1" Grid.Column="0"  FontSize="25" VerticalAlignment="Center" HorizontalAlignment="Center" TextWrapping="Wrap" Foreground="LemonChiffon">A</TextBlock>
+                        <TextBlock Grid.Row="2" Grid.Column="0"  FontSize="25" VerticalAlignment="Center" HorizontalAlignment="Center" TextWrapping="Wrap" Foreground="LemonChiffon">B</TextBlock>
+                        <TextBlock Grid.Row="4" Grid.Column="0"  FontSize="25" VerticalAlignment="Center" HorizontalAlignment="Center" TextWrapping="Wrap" Foreground="LemonChiffon">C</TextBlock>
+                        <TextBlock Grid.Row="5" Grid.Column="0"  FontSize="25" VerticalAlignment="Center" HorizontalAlignment="Center" TextWrapping="Wrap" Foreground="LemonChiffon">D</TextBlock>
+                        <TextBlock Grid.Row="0" Grid.Column="1" FontSize="20" Margin="2" VerticalAlignment="Center" HorizontalAlignment="Left" TextWrapping="Wrap" TextAlignment="Center" Grid.ColumnSpan="2" Foreground="Goldenrod" >Наименование параметра</TextBlock>
+                        <TextBlock Grid.Row="0" Grid.Column="3" FontSize="20" Margin="2" VerticalAlignment="Center" HorizontalAlignment="Center" TextWrapping="Wrap" TextAlignment="Center" Grid.ColumnSpan="1" Foreground="Goldenrod" >Значение</TextBlock>
+                        <TextBlock Grid.Row="0" Grid.Column="4" FontSize="20" Margin="2" VerticalAlignment="Center" HorizontalAlignment="Center" TextWrapping="Wrap" TextAlignment="Center" Grid.ColumnSpan="1" Foreground="Goldenrod" >Полки</TextBlock>
+                        <TextBlock Grid.Row="1" Grid.Column="1" FontSize="18" Margin="2" VerticalAlignment="Center" HorizontalAlignment="Left" TextWrapping="Wrap" TextAlignment="Left" Foreground="Lavender">Расстояние от пола до рабочей плоскости нижней полки</TextBlock>
+                        <TextBlock Grid.Row="2" Grid.Column="1" FontSize="20" Margin="2" VerticalAlignment="Center" HorizontalAlignment="Left" TextWrapping="Wrap" TextAlignment="Left" Foreground="Lavender">Расстояние между полками</TextBlock>
+                        <TextBlock Grid.Row="3" Grid.Column="1" FontSize="20" Margin="2" VerticalAlignment="Center" HorizontalAlignment="Left" TextWrapping="Wrap" TextAlignment="Left" Foreground="Lavender">Количество полок</TextBlock>
+                        <TextBlock Grid.Row="4" Grid.Column="1" FontSize="20" Margin="2" VerticalAlignment="Center" HorizontalAlignment="Left" TextWrapping="Wrap" TextAlignment="Left" Foreground="Lavender">Высота верхней полки</TextBlock>
+                        <TextBlock Grid.Row="5" Grid.Column="1" FontSize="20" Margin="2" VerticalAlignment="Center" HorizontalAlignment="Left" TextWrapping="Wrap" TextAlignment="Left" Foreground="Lavender">Высота стойки</TextBlock>
+                        <!-- Ввод данных -->
+
+                        <TextBox x:Name="ShelfLowerSGS" Grid.Row="1" Grid.Column="2"  FontSize="25"   TextWrapping="Wrap" HorizontalAlignment="Center" BorderBrush="LightGray" VerticalAlignment="Center" Background="LightGray" FontWeight="Bold" Text="42" TextChanged="ShelfLowerSGS_TextChanged"  />
+                        <TextBox x:Name="ShelfDistanceSGS" Grid.Row="2" Grid.Column="2"  FontSize="25"  TextWrapping="Wrap" HorizontalAlignment="Center" BorderBrush="LightGray" VerticalAlignment="Center" Background="LightGray" FontWeight="Bold" Text="325" TextChanged="ShelfDistanceSGS_TextChanged"   />
+                        <TextBox x:Name="ShelfAmountSGS" Grid.Row="3" Grid.Column="2"   FontSize="25" TextWrapping="Wrap" HorizontalAlignment="Center" BorderBrush="LightGray" VerticalAlignment="Center" Background="LightGray" FontWeight="Bold" Text="3" TextChanged="ShelfAmountSGS_TextChanged"  />
+
+
+                        <!-- Вывод данных -->
+                        <TextBlock Name ="ShelfLowerSGS_" Grid.Row="1" Grid.Column="3" FontSize="30" Margin="2" VerticalAlignment="Center" HorizontalAlignment="Center" TextWrapping="Wrap" TextAlignment="Left" Foreground="Lavender">5</TextBlock>
+                        <TextBlock Name ="ShelfDistanceSGS_" Grid.Row="2" Grid.Column="3" FontSize="30" Margin="2" VerticalAlignment="Center" HorizontalAlignment="Center" TextWrapping="Wrap" TextAlignment="Left" Foreground="Lavender">5</TextBlock>
+                        <TextBlock Name ="ShelfAmountSGS_" Grid.Row="3" Grid.Column="3" FontSize="30" Margin="2" VerticalAlignment="Center" HorizontalAlignment="Center" TextWrapping="Wrap" TextAlignment="Left" Foreground="Lavender">5</TextBlock>
+                        <TextBlock Name ="ShelfUpperHeightSGS_" Grid.Row="4" Grid.Column="3" FontSize="30" Margin="2" VerticalAlignment="Center" HorizontalAlignment="Center" TextWrapping="Wrap" TextAlignment="Left" Foreground="Lavender">5</TextBlock>
+                        <TextBlock Name ="ShelfStandHeightSGS_" Grid.Row="5" Grid.Column="3" FontSize="30" Margin="2" VerticalAlignment="Center" HorizontalAlignment="Center" TextWrapping="Wrap" TextAlignment="Left" Foreground="Lavender">5</TextBlock>
+                        <StackPanel Name="ShelfPositionSGS_" Grid.Row="1" Grid.Column="4" HorizontalAlignment="Center" Grid.RowSpan="5" Orientation="Vertical"/>
+                    </Grid>
+                </TabItem.Content>
+            </TabItem>
+
 
         </TabControl>
     </Grid>
