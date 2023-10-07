@@ -169,7 +169,27 @@ namespace ShelfCalc
                 ex.ToString();
             }
         }
+        /// <summary>
+        /// перессчет СГС
+        /// </summary>
+        private void SGSReCalc()
+        {
+            try
+            {
+                if (ShelfLowerSGS is null || ShelfDistanceSGS is null || ShelfAmountSGS is null)
+                {
+                    return;
+                }
+                SGS sgs50 = new SGS(ShelfDistanceSGS.Text, ShelfLowerSGS.Text, ShelfAmountSGS.Text);
+                RefreshFilds(sgs50, ShelfLowerSGS_, ShelfStandHeightSGS_, ShelfAmountSGS_, ShelfDistanceSGS_, ShelfUpperHeightSGS_, null, ShelfPositionSGS_);
 
+            }
+            catch (Exception ex)
+            {
+                ex.ToString();
+            }
+        }
+        
         private void Slide1000ReCalc()
         {
             try
@@ -645,18 +665,19 @@ namespace ShelfCalc
         private void ShelfLowerSGS_TextChanged(object sender, TextChangedEventArgs e)
         {
 
+            SGSReCalc();
         }
 
         // меняетмя расстояние между полками
         private void ShelfDistanceSGS_TextChanged(object sender, TextChangedEventArgs e)
         {
-
+            SGSReCalc();
         }
 
         //меняется количество полок
         private void ShelfAmountSGS_TextChanged(object sender, TextChangedEventArgs e)
         {
-
+            SGSReCalc();
         }
     }
 }
