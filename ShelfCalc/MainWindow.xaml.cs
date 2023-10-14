@@ -575,7 +575,7 @@ namespace ShelfCalc
                 MainGrid.ColumnDefinitions[1].Width = new GridLength(1, GridUnitType.Star);
             }
             */
-            if (TabSlide.IsSelected || TabSlide14.IsSelected)
+            if (TabSlide.IsSelected || TabSlide14.IsSelected || TabSGS.IsSelected)
             {
                 VisualGrid.ColumnDefinitions[1].Width = new GridLength(1, GridUnitType.Star);
                 VisualGrid.ColumnDefinitions[0].Width = new GridLength(0, GridUnitType.Star);
@@ -604,6 +604,11 @@ namespace ShelfCalc
             Slide1400ReCalc();
         }
 
+        /// <summary>
+        /// Отрисовка слайдов и СГС
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
             double Glubina = 800;
@@ -635,11 +640,20 @@ namespace ShelfCalc
                 DrawStell.Draw(new Slide1400(ShelfDistanceSlide.Text, ShelfLowerSlide.Text, ShelfAmountSlide.Text), Glubina, Dlina, true, false);
                 this.Show();
             }
+
             if (TabSlide14.IsSelected)
             {
                 this.Hide();
                 //ShelfDistanceSlide10000 is null || ShelfLowerSlide10000  is null || ShelfAmountSlide10000
                 DrawStell.Draw(new Slide1000(ShelfDistanceSlide10000.Text, ShelfLowerSlide10000.Text, ShelfAmountSlide10000.Text), Glubina, Dlina, true, false);
+                this.Show();
+            }
+            // если вкладка СГС выбрана
+            if (TabSGS.IsSelected)
+            {
+                this.Hide();
+                //ShelfDistanceSlide10000 is null || ShelfLowerSlide10000  is null || ShelfAmountSlide10000
+                DrawStell.Draw(new SGS(ShelfDistanceSGS.Text, ShelfLowerSGS.Text, ShelfAmountSGS.Text), Glubina, Dlina, true, false);
                 this.Show();
 
             }

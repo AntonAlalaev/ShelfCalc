@@ -36,10 +36,10 @@ namespace ShelfCalc
             BaseWidthIncrement = 81;
             BaseWidthIncrement2 = BaseWidthIncrement;
 
-            StandBlockName = "StandSlide";
+            StandBlockName = "StandSGS";
             StandShiftDistanceX = 0;
             StandShiftDistanceX2 = StandShiftDistanceX;
-            StandShiftDistanceY = 4;
+            StandShiftDistanceY = 0;
             StandWidthIncrement = 0;
 
             ShelfBlockName = "ShelfSectionSlide1000";
@@ -52,22 +52,22 @@ namespace ShelfCalc
 
 
 
-            StandFrontBlockName = "StandSlideFront";
+            StandFrontBlockName = "SGS_Stand_front";
             StandFrontShiftX = -140; //was 140
-            ShelfFrontBlockName = "ShelfFrontSlide1000";
+            ShelfFrontBlockName = "ShelfFrontSGS";
             ShelfFrontShifX = -73.5; // was -73.5
             ShelfFrontLengthIncrement = 6 + 14; //was 6
             BaseFrontBlockName = "SlideOporaFront1400";
             BaseFrontShiftX = -199.5; // was -100
             BaseFrontIcrement = 399;
 
-            ShelfTopFrontBlockName = "ShelfTopFrontSlide1400";
+            ShelfTopFrontBlockName = "ShelfFrontTopSGS";
             ShelfTopFrontShifX = -73.5;
             ShelfTopFrontLengthIncrement = 6;
             StandFrontShiftCoeff = -18.5; // was -18.5;
 
             LowerShelfBlockName = "ShelfSectionBottomSlide1000";
-            LowerShelfFrontBlockName = "ShelfFrontBottomSlide1000";
+            LowerShelfFrontBlockName = "ShelfFrontBottomSGS";
 
             //рассчет положения полок
             GetShelfCalc();
