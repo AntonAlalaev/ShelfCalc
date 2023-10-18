@@ -15,7 +15,7 @@ namespace ShelfCalc
             StandHeightShift = 2;
             MinimalLowerShelf = 102;
             ShelfHeight = 50;
-            MinimalShelfDistance = 50;
+            MinimalShelfDistance = 100;
             SecondShelfPositionOverride = MinimalLowerShelf;
 
             //рассчет нижней полки
@@ -29,11 +29,11 @@ namespace ShelfCalc
                 this.Amount = 1;
             }
 
-            BaseBlockName = "SlideOpora";
-            BaseShiftDistanceX = -19;
+            BaseBlockName = "SGSOpora";
+            BaseShiftDistanceX = 0;
             BaseShiftDistanceX2 = BaseShiftDistanceX;
-            BaseShiftDistanceY = 0;
-            BaseWidthIncrement = 81;
+            BaseShiftDistanceY = -2;
+            BaseWidthIncrement = 0;
             BaseWidthIncrement2 = BaseWidthIncrement;
 
             StandBlockName = "StandSGS";
@@ -42,31 +42,32 @@ namespace ShelfCalc
             StandShiftDistanceY = 0;
             StandWidthIncrement = 0;
 
-            ShelfBlockName = "ShelfSectionSlide1000";
-            ShelfTopBlockName = "ShelfTopSection";
-            ShelfTopShiftDistanceY = -80;
+            ShelfBlockName = "ShelfSectionSGS";
+            ShelfTopBlockName = "ShelfTopSectionSGS";
+            ShelfTopShiftDistanceY = 0;
             ShelfShiftDistanceX = 0;
-            ShelfShiftDistanceY = -80;
+            ShelfShiftDistanceY = 0;
             ShelfWidthIncrement = 0;
             ShelfShiftDistanceX2 = -ShelfShiftDistanceX;
 
 
 
             StandFrontBlockName = "SGS_Stand_front";
-            StandFrontShiftX = -140; //was 140
+            StandFrontShiftX = 0; //was 140
+
             ShelfFrontBlockName = "ShelfFrontSGS";
-            ShelfFrontShifX = -73.5; // was -73.5
-            ShelfFrontLengthIncrement = 6 + 14; //was 6
-            BaseFrontBlockName = "SlideOporaFront1400";
-            BaseFrontShiftX = -199.5; // was -100
-            BaseFrontIcrement = 399;
+            ShelfFrontShifX = 0; // was -73.5
+            ShelfFrontLengthIncrement = 0; //was 6
+            BaseFrontBlockName = "SGSOporaFront";
+            BaseFrontShiftX = -28; // was -100
+            BaseFrontIcrement = 100;
 
             ShelfTopFrontBlockName = "ShelfFrontTopSGS";
-            ShelfTopFrontShifX = -73.5;
-            ShelfTopFrontLengthIncrement = 6;
+            ShelfTopFrontShifX = 0;
+            ShelfTopFrontLengthIncrement = 0;
             StandFrontShiftCoeff = -18.5; // was -18.5;
 
-            LowerShelfBlockName = "ShelfSectionBottomSlide1000";
+            LowerShelfBlockName = "ShelfSectionBottomSGS";
             LowerShelfFrontBlockName = "ShelfFrontBottomSGS";
 
             //рассчет положения полок
