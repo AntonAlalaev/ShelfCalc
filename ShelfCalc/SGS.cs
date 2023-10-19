@@ -12,7 +12,7 @@ namespace ShelfCalc
         {
             Step = 50;
             Shift = 25;
-            StandHeightShift = 2;
+            StandHeightShift = 0;
             MinimalLowerShelf = 102;
             ShelfHeight = 50;
             MinimalShelfDistance = 100;
@@ -30,7 +30,7 @@ namespace ShelfCalc
             }
 
             BaseBlockName = "SGSOpora";
-            BaseShiftDistanceX = 0;
+            BaseShiftDistanceX = -4;
             BaseShiftDistanceX2 = BaseShiftDistanceX;
             BaseShiftDistanceY = -2;
             BaseWidthIncrement = 0;
@@ -44,28 +44,30 @@ namespace ShelfCalc
 
             ShelfBlockName = "ShelfSectionSGS";
             ShelfTopBlockName = "ShelfTopSectionSGS";
-            ShelfTopShiftDistanceY = 0;
+            ShelfTopShiftDistanceY = -50;
             ShelfShiftDistanceX = 0;
-            ShelfShiftDistanceY = 0;
+            ShelfShiftDistanceY = -50;            
+            
             ShelfWidthIncrement = 0;
             ShelfShiftDistanceX2 = -ShelfShiftDistanceX;
-
+            
 
 
             StandFrontBlockName = "SGS_Stand_front";
-            StandFrontShiftX = 0; //was 140
+            StandFrontShiftX = -40; //was 40
 
             ShelfFrontBlockName = "ShelfFrontSGS";
             ShelfFrontShifX = 0; // was -73.5
-            ShelfFrontLengthIncrement = 0; //was 6
+            
+            ShelfFrontLengthIncrement = 54; //was 0
             BaseFrontBlockName = "SGSOporaFront";
-            BaseFrontShiftX = -28; // was -100
-            BaseFrontIcrement = 100;
+            BaseFrontShiftX = -42.5; // -42.5
+            BaseFrontIcrement = 115;
 
             ShelfTopFrontBlockName = "ShelfFrontTopSGS";
             ShelfTopFrontShifX = 0;
-            ShelfTopFrontLengthIncrement = 0;
-            StandFrontShiftCoeff = -18.5; // was -18.5;
+            ShelfTopFrontLengthIncrement = ShelfFrontLengthIncrement;
+            StandFrontShiftCoeff = 15; // was 15;
 
             LowerShelfBlockName = "ShelfSectionBottomSGS";
             LowerShelfFrontBlockName = "ShelfFrontBottomSGS";
