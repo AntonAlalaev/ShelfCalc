@@ -12,7 +12,7 @@ namespace ShelfCalc
         {
             Step = 50;
             Shift = 25;
-            StandHeightShift = 0;
+            StandHeightShift = 2;
             MinimalLowerShelf = 102;
             ShelfHeight = 50;
             MinimalShelfDistance = 100;
@@ -32,14 +32,14 @@ namespace ShelfCalc
             BaseBlockName = "SGSOpora";
             BaseShiftDistanceX = -4;
             BaseShiftDistanceX2 = BaseShiftDistanceX;
-            BaseShiftDistanceY = -2;
+            BaseShiftDistanceY = 0;
             BaseWidthIncrement = 0;
             BaseWidthIncrement2 = BaseWidthIncrement;
 
             StandBlockName = "StandSGS";
             StandShiftDistanceX = 0;
             StandShiftDistanceX2 = StandShiftDistanceX;
-            StandShiftDistanceY = 0;
+            StandShiftDistanceY = 2;
             StandWidthIncrement = 0;
 
             ShelfBlockName = "ShelfSectionSGS";
@@ -54,20 +54,20 @@ namespace ShelfCalc
 
 
             StandFrontBlockName = "SGS_Stand_front";
-            StandFrontShiftX = -40; //was 40
+            StandFrontShiftX = -55; 
 
             ShelfFrontBlockName = "ShelfFrontSGS";
-            ShelfFrontShifX = 0; // was -73.5
+            ShelfFrontShifX = -15; 
             
-            ShelfFrontLengthIncrement = 54; //was 0
+            ShelfFrontLengthIncrement = 54; 
             BaseFrontBlockName = "SGSOporaFront";
-            BaseFrontShiftX = -42.5; // -42.5
+            BaseFrontShiftX = -57.5; 
             BaseFrontIcrement = 115;
 
             ShelfTopFrontBlockName = "ShelfFrontTopSGS";
-            ShelfTopFrontShifX = 0;
+            ShelfTopFrontShifX = ShelfFrontShifX;
             ShelfTopFrontLengthIncrement = ShelfFrontLengthIncrement;
-            StandFrontShiftCoeff = 15; // was 15;
+            StandFrontShiftCoeff = -15; 
 
             LowerShelfBlockName = "ShelfSectionBottomSGS";
             LowerShelfFrontBlockName = "ShelfFrontBottomSGS";
@@ -76,5 +76,37 @@ namespace ShelfCalc
             GetShelfCalc();
 
         }
+
+
+
+
+
+        /// <summary>
+        /// Рассчитиывает положение полок по заданному шагу перфорации
+        /// </summary>
+        public override void GetShelfCalc()
+        {
+            // Высота расстояние между поверхностями полок (учитывая толщину полки)
+            double ShelfDistanceWithHeight = ShelfDistance + ShelfHeight;
+
+            for (int i = 0; i < Amount; i++)
+            {
+                if (i == 0)
+                {
+                    ShelfPosArray.Add(StepPosition(LowerShelf + ShelfDistanceWithHeight, LowerShelf, Step));
+                }
+                else
+                {                    
+                    // положения обычных полок
+                    ShelfPosArray.Add(StepPosition(ShelfPosArray[i - 1] + ShelfDistanceWithHeight, LowerShelf, Step));
+
+                }
+            }
+
+            UpperShelf = ShelfPosArray[ShelfPosArray.Count - 1];
+            TotalHeight = UpperShelf;
+            StandHeight = UpperShelf - StandHeightShift;
+        }
+
     }
 }

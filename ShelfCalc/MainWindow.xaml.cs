@@ -279,6 +279,12 @@ namespace ShelfCalc
             ShelfDistanceSlide10000.Text = "430";
             ShelfAmountSlide10000.Text = "3";
 
+            ShelfLowerSGS.Text = "100";
+            ShelfDistanceSGS.Text = "400";
+            ShelfAmountSGS.Text = "4";
+
+
+
         }
 
         private void ShelfLowerL_TextChanged(object sender, TextChangedEventArgs e)
