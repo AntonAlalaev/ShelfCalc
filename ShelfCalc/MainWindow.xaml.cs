@@ -189,7 +189,7 @@ namespace ShelfCalc
                 ex.ToString();
             }
         }
-        
+
         private void Slide1000ReCalc()
         {
             try
@@ -635,11 +635,23 @@ namespace ShelfCalc
             {
             }
 
-            if (Glubina < 800)
-                Glubina = 800;
+            if (TabSlide14.IsSelected)
+            {
+                if (Glubina < 800)
+                    Glubina = 800;
+                if (Dlina < 800)
+                    Dlina = 800;
+            }
 
-            if (Dlina < 800)
-                Dlina = 800;
+            if (TabSGS.IsSelected)
+            {
+                if (Glubina < 400)
+                    Glubina = 400;
+                if (Dlina < 400)
+                    Dlina = 400;
+            }
+
+
             if (TabSlide.IsSelected)
             {
                 this.Hide();
