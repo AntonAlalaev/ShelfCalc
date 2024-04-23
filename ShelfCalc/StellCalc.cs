@@ -405,6 +405,59 @@ namespace ShelfCalc
         /// Сещение второй стойки на виде спереди
         /// </summary>
         public double StandFrontShiftCoeff;
+
+        /// <summary>
+        /// Расчет высоты стойки
+        /// </summary>
+        protected void StoikaHeightCalc()
+        {
+            double Height = StandHeight-3;
+            double calcHeight = StandHeight;
+            int i = 0;
+            // проверка на стандартную высоту кратную 350
+            for (i = 1932; i<=3332; i+=350)
+            {
+                if (Math.Abs(calcHeight - i) < 0.5)
+                {
+                    StandHeight = i;
+                    return;
+                }
+            }
+
+            int minGap = 0;
+
+            if (Step == 25)
+            {
+                minGap = 7 + 22;
+            }
+            if (Step == 12.5)
+            {
+                minGap = 7 + 6;
+            }
+
+            calcHeight = minGap;
+
+            do
+            {
+                calcHeight += Step;
+                if (calcHeight >= Height)
+                { 
+                    break;
+                }
+            } while (true);
+
+            double standartCheck = calcHeight + 3;
+            for (i = 1932; i <= 3332; i += 350)
+            {
+                if (Math.Abs(standartCheck - i) < 0.5)
+                {
+                    StandHeight = i;
+                    return;
+                }
+            }
+            StandHeight = calcHeight;
+        }
+
     }
 
 }

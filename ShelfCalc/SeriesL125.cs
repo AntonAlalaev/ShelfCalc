@@ -36,6 +36,7 @@ namespace ShelfCalc
             }
             GetLowerShelfCalc();
             GetShelfCalc();
+            StoikaHeightCalc();
 
             BaseBlockName = "LSeriesOpora2";
             BaseShiftDistanceX = -2;

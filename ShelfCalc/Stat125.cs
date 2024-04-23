@@ -21,6 +21,7 @@ namespace ShelfCalc
                 this.Amount = 1;
             }
             GetShelfCalc();
+            StoikaHeightCalc();
             BaseBlockName = "StatOpora";
             BaseShiftDistanceX = -2;
             BaseShiftDistanceX2 = -13;
