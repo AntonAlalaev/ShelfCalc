@@ -829,7 +829,7 @@
                 <TabItem.Header>
                     <StackPanel Orientation="Horizontal">
                         <Rectangle Height="10" Width="10" Fill="Black" />
-                        <TextBlock  FontSize="20" Margin="3">СБСГС</TextBlock>
+                        <TextBlock  FontSize="20" Margin="3">СБ-СГС</TextBlock>
                     </StackPanel>
                 </TabItem.Header>
                 <TabItem.Content>
@@ -897,9 +897,9 @@
                         <TextBlock Grid.Row="5" Grid.Column="1" FontSize="20" Margin="2,0,0,0" VerticalAlignment="Center" HorizontalAlignment="Left" TextWrapping="Wrap" TextAlignment="Left" Foreground="Lavender">Высота стойки</TextBlock>
                         <!-- Ввод данных -->
 
-                        <TextBox x:Name="ShelfLowerSGSSB" Grid.Row="1" Grid.Column="2"  FontSize="25"   TextWrapping="Wrap" HorizontalAlignment="Left" BorderBrush="LightGray" VerticalAlignment="Center" Background="LightGray" FontWeight="Bold" Text="42" TextChanged="ShelfLowerSGS_TextChanged" Margin="43,0,0,0"  />
-                        <TextBox x:Name="ShelfDistanceSGSSB" Grid.Row="2" Grid.Column="2"  FontSize="25"  TextWrapping="Wrap" HorizontalAlignment="Left" BorderBrush="LightGray" VerticalAlignment="Center" Background="LightGray" FontWeight="Bold" Text="325" TextChanged="ShelfDistanceSGS_TextChanged" Margin="36,0,0,0"   />
-                        <TextBox x:Name="ShelfAmountSGSSB" Grid.Row="3" Grid.Column="2"   FontSize="25" TextWrapping="Wrap" HorizontalAlignment="Left" BorderBrush="LightGray" VerticalAlignment="Center" Background="LightGray" FontWeight="Bold" Text="3" TextChanged="ShelfAmountSGS_TextChanged" Margin="51,0,0,0"  />
+                        <TextBox x:Name="ShelfLowerSGSSB" Grid.Row="1" Grid.Column="2"  FontSize="25"   TextWrapping="Wrap" HorizontalAlignment="Left" BorderBrush="LightGray" VerticalAlignment="Center" Background="LightGray" FontWeight="Bold" Text="42"  Margin="43,0,0,0" TextChanged="ShelfLowerSGSSB_TextChanged"  />
+                        <TextBox x:Name="ShelfDistanceSGSSB" Grid.Row="2" Grid.Column="2"  FontSize="25"  TextWrapping="Wrap" HorizontalAlignment="Left" BorderBrush="LightGray" VerticalAlignment="Center" Background="LightGray" FontWeight="Bold" Text="325"  Margin="36,0,0,0" TextChanged="ShelfDistanceSGSSB_TextChanged"   />
+                        <TextBox x:Name="ShelfAmountSGSSB" Grid.Row="3" Grid.Column="2"   FontSize="25" TextWrapping="Wrap" HorizontalAlignment="Left" BorderBrush="LightGray" VerticalAlignment="Center" Background="LightGray" FontWeight="Bold" Text="3"  Margin="51,0,0,0" TextChanged="ShelfAmountSGSSB_TextChanged"  />
 
 
                         <!-- Вывод данных -->

@@ -12,8 +12,8 @@ namespace ShelfCalc
         {
             Step = 50;
             Shift = 25;
-            StandHeightShift = 2;
-            MinimalLowerShelf = 102;
+            StandHeightShift = 182;
+            MinimalLowerShelf = 282;
             ShelfHeight = 50;
             MinimalShelfDistance = 100;
             SecondShelfPositionOverride = MinimalLowerShelf;
@@ -29,21 +29,21 @@ namespace ShelfCalc
                 this.Amount = 1;
             }
 
-            BaseBlockName = "SBSGSOpora";
-            BaseShiftDistanceX = -4;
+            BaseBlockName = "SBSGSOporaSide";
+            BaseShiftDistanceX = -12;
             BaseShiftDistanceX2 = BaseShiftDistanceX;
             BaseShiftDistanceY = 0;
-            BaseWidthIncrement = 0;
+            BaseWidthIncrement = 24;
             BaseWidthIncrement2 = BaseWidthIncrement;
 
-            StandBlockName = "StandSBSGS";
+            StandBlockName = "StandSGS";
             StandShiftDistanceX = 0;
             StandShiftDistanceX2 = StandShiftDistanceX;
-            StandShiftDistanceY = 2;
+            StandShiftDistanceY = 182;
             StandWidthIncrement = 0;
 
-            ShelfBlockName = "ShelfSectionSBSGS";
-            ShelfTopBlockName = "ShelfTopSectionSBSGS";
+            ShelfBlockName = "ShelfSectionSGS";
+            ShelfTopBlockName = "ShelfTopSectionSGS";
             ShelfTopShiftDistanceY = -50;
             ShelfShiftDistanceX = 0;
             ShelfShiftDistanceY = -50;
@@ -53,10 +53,10 @@ namespace ShelfCalc
 
 
 
-            StandFrontBlockName = "SBSGS_Stand_front";
+            StandFrontBlockName = "SGS_Stand_front";
             StandFrontShiftX = -55;
 
-            ShelfFrontBlockName = "ShelfFrontSBSGS";
+            ShelfFrontBlockName = "ShelfFrontSGS";
             ShelfFrontShifX = -15;
 
             ShelfFrontLengthIncrement = 54;
@@ -64,17 +64,23 @@ namespace ShelfCalc
             BaseFrontShiftX = -57.5;
             BaseFrontIcrement = 115;
 
-            ShelfTopFrontBlockName = "ShelfFrontTopSBSGS";
+            ShelfTopFrontBlockName = "ShelfFrontTopSGS";
             ShelfTopFrontShifX = ShelfFrontShifX;
             ShelfTopFrontLengthIncrement = ShelfFrontLengthIncrement;
             StandFrontShiftCoeff = -15;
 
-            LowerShelfBlockName = "ShelfSectionBottomSBSGS";
-            LowerShelfFrontBlockName = "ShelfFrontBottomSBSGS";
+            LowerShelfBlockName = "ShelfSectionBottomSGS";
+            LowerShelfFrontBlockName = "ShelfFrontBottomSGS";
 
             //рассчет положения полок
             GetShelfCalc();
+
         }
+
+
+
+
+
         /// <summary>
         /// Рассчитиывает положение полок по заданному шагу перфорации
         /// </summary>

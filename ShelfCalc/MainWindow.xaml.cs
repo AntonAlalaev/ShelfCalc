@@ -190,6 +190,29 @@ namespace ShelfCalc
             }
         }
 
+
+        /// <summary>
+        /// перессчет СГС
+        /// </summary>
+        private void SBSGSReCalc()
+        {
+            try
+            {
+                if (ShelfLowerSGSSB is null || ShelfDistanceSGSSB is null || ShelfAmountSGSSB is null)
+                {
+                    return;
+                }
+                SBSGS sgs50 = new SBSGS(ShelfDistanceSGSSB.Text, ShelfLowerSGSSB.Text, ShelfAmountSGSSB.Text);
+                RefreshFilds(sgs50, ShelfLowerSGSSB_, ShelfStandHeightSGSSB_, ShelfAmountSGSSB_, ShelfDistanceSGSSB_, ShelfUpperHeightSGSSB_, null, ShelfPositionSGSSB_);
+
+            }
+            catch (Exception ex)
+            {
+                ex.ToString();
+            }
+        }
+
+
         private void Slide1000ReCalc()
         {
             try
@@ -282,6 +305,14 @@ namespace ShelfCalc
             ShelfLowerSGS.Text = "100";
             ShelfDistanceSGS.Text = "400";
             ShelfAmountSGS.Text = "4";
+
+            ShelfLowerSGS.Text = "102";
+            ShelfDistanceSGS.Text = "400";
+            ShelfAmountSGS.Text = "4";
+
+            ShelfLowerSGSSB.Text = "282";
+            ShelfDistanceSGSSB.Text = "400";
+            ShelfAmountSGSSB.Text = "4";
 
 
 
@@ -581,7 +612,7 @@ namespace ShelfCalc
                 MainGrid.ColumnDefinitions[1].Width = new GridLength(1, GridUnitType.Star);
             }
             */
-            if (TabSlide.IsSelected || TabSlide14.IsSelected || TabSGS.IsSelected)
+            if (TabSlide.IsSelected || TabSlide14.IsSelected || TabSGS.IsSelected || TabSGSSB.IsSelected)
             {
                 VisualGrid.ColumnDefinitions[1].Width = new GridLength(1, GridUnitType.Star);
                 VisualGrid.ColumnDefinitions[0].Width = new GridLength(0, GridUnitType.Star);
@@ -651,6 +682,16 @@ namespace ShelfCalc
                     Dlina = 400;
             }
 
+            if (TabSGSSB.IsSelected)
+            {
+                if (Glubina < 600)
+                    Glubina = 600;
+                if (Dlina < 600)
+                    Dlina = 600;
+            }
+
+
+
 
             if (TabSlide.IsSelected)
             {
@@ -674,6 +715,14 @@ namespace ShelfCalc
                 DrawStell.Draw(new SGS(ShelfDistanceSGS.Text, ShelfLowerSGS.Text, ShelfAmountSGS.Text), Glubina, Dlina, true, false);
                 this.Show();
 
+            }
+
+            if (TabSGSSB.IsSelected)
+            {
+                this.Hide();
+                //ShelfDistanceSlide10000 is null || ShelfLowerSlide10000  is null || ShelfAmountSlide10000
+                DrawStell.Draw(new SBSGS(ShelfDistanceSGSSB.Text, ShelfLowerSGSSB.Text, ShelfAmountSGSSB.Text), Glubina, Dlina, true, false);
+                this.Show();
             }
         }
 
@@ -711,5 +760,24 @@ namespace ShelfCalc
         {
             SGSReCalc();
         }
+
+        private void ShelfLowerSGSSB_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            SBSGSReCalc();
+        }
+
+        private void ShelfDistanceSGSSB_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            SBSGSReCalc();
+        }
+
+        private void ShelfAmountSGSSB_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            SBSGSReCalc();
+        }
+
+        // ShelfLowerSGS_TextChanged
+        // ShelfDistanceSGS_TextChanged
+        // ShelfAmountSGS_TextChanged
     }
 }
