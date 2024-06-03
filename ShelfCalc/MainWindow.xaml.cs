@@ -310,8 +310,8 @@ namespace ShelfCalc
             ShelfDistanceSGS.Text = "400";
             ShelfAmountSGS.Text = "4";
 
-            ShelfLowerSGSSB.Text = "282";
-            ShelfDistanceSGSSB.Text = "400";
+            ShelfLowerSGSSB.Text = "232";
+            ShelfDistanceSGSSB.Text = "450";
             ShelfAmountSGSSB.Text = "4";
 
 
@@ -615,13 +615,20 @@ namespace ShelfCalc
             if (TabSlide.IsSelected || TabSlide14.IsSelected || TabSGS.IsSelected || TabSGSSB.IsSelected)
             {
                 VisualGrid.ColumnDefinitions[1].Width = new GridLength(1, GridUnitType.Star);
-                VisualGrid.ColumnDefinitions[0].Width = new GridLength(0, GridUnitType.Star);
+                VisualGrid.ColumnDefinitions[0].Width = new GridLength(0, GridUnitType.Star);                
+                if (TabSlide.IsSelected || TabSlide14.IsSelected)
+                    ShelfLengthSlide.Text = "1200";
+                else
+                    ShelfLengthSlide.Text = "1100";
             }
             else
             {
                 VisualGrid.ColumnDefinitions[1].Width = new GridLength(0, GridUnitType.Star);
                 VisualGrid.ColumnDefinitions[0].Width = new GridLength(1, GridUnitType.Star);
+                ShelfLength.Text = "1000";
             }
+
+           
 
 
         }
@@ -658,6 +665,9 @@ namespace ShelfCalc
             }
 
             double Dlina = 1200;
+            if (TabSGS.IsSelected || TabSGSSB.IsSelected)
+                Dlina = 1100;
+
             try
             {
                 Dlina = double.Parse(ShelfLengthSlide.Text);
@@ -776,8 +786,5 @@ namespace ShelfCalc
             SBSGSReCalc();
         }
 
-        // ShelfLowerSGS_TextChanged
-        // ShelfDistanceSGS_TextChanged
-        // ShelfAmountSGS_TextChanged
     }
 }

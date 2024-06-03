@@ -13,7 +13,7 @@ namespace ShelfCalc
             Step = 50;
             Shift = 25;
             StandHeightShift = 182;
-            MinimalLowerShelf = 282;
+            MinimalLowerShelf = 232;
             ShelfHeight = 50;
             MinimalShelfDistance = 100;
             SecondShelfPositionOverride = MinimalLowerShelf;
@@ -70,7 +70,7 @@ namespace ShelfCalc
             StandFrontShiftCoeff = -15;
 
             LowerShelfBlockName = "ShelfSectionBottomSGS";
-            LowerShelfFrontBlockName = "ShelfFrontBottomSGS";
+            LowerShelfFrontBlockName = "SBSGSLowerFront";
 
             //рассчет положения полок
             GetShelfCalc();
