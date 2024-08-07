@@ -587,6 +587,7 @@
                             <RowDefinition Height="*"/>
                             <RowDefinition Height="*"/>
                             <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
                         </Grid.RowDefinitions>
                         <!-- Заполнение Квадаратов и заливка  -->
                         <Rectangle Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" Fill="Black" Stroke="Lavender" StrokeThickness="1"/>
@@ -614,6 +615,7 @@
                         <Rectangle Grid.Row="3" Grid.Column="3" Fill="Black" Stroke="Lavender" StrokeThickness="1"/>
                         <Rectangle Grid.Row="4" Grid.Column="3" Fill="Black" Stroke="Lavender" StrokeThickness="1"/>
                         <Rectangle Grid.Row="5" Grid.Column="3" Fill="Black" Stroke="Lavender" StrokeThickness="1"/>
+                        <Rectangle Grid.Row="5" Grid.Column="3" Fill="Black" Stroke="Lavender" StrokeThickness="1"/>
                         <Rectangle Grid.Row="1" Grid.Column="4" Grid.RowSpan="5" Fill="Black" Stroke="Lavender" StrokeThickness="1"/>
 
                         <Rectangle Fill="LightGray" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="2" Grid.Row="1"/>
@@ -632,13 +634,19 @@
                         <TextBlock Grid.Row="3" Grid.Column="1" FontSize="20" Margin="2" VerticalAlignment="Center" HorizontalAlignment="Left" TextWrapping="Wrap" TextAlignment="Left" Foreground="Lavender">Количество полок</TextBlock>
                         <TextBlock Grid.Row="4" Grid.Column="1" FontSize="20" Margin="2" VerticalAlignment="Center" HorizontalAlignment="Left" TextWrapping="Wrap" TextAlignment="Left" Foreground="Lavender">Высота верхней полки</TextBlock>
                         <TextBlock Grid.Row="5" Grid.Column="1" FontSize="20" Margin="2" VerticalAlignment="Center" HorizontalAlignment="Left" TextWrapping="Wrap" TextAlignment="Left" Foreground="Lavender">Высота стойки</TextBlock>
+                        <CheckBox x:Name="Slide1400Tall"   Grid.Row="6" Grid.Column="1" FontSize="10"  VerticalAlignment="Center" HorizontalAlignment="Left"  Foreground="Lavender">
+                            Таль
+                            <CheckBox.LayoutTransform>
+                                <ScaleTransform ScaleX="2" ScaleY="2" />
+                            </CheckBox.LayoutTransform>
+                        </CheckBox>
                         <!-- Ввод данных -->
                         <TextBox x:Name="ShelfLowerSlide" Grid.Row="1" Grid.Column="2"  FontSize="25"   TextWrapping="Wrap" HorizontalAlignment="Center" BorderBrush="LightGray" VerticalAlignment="Center" Background="LightGray" FontWeight="Bold" Text="42" TextChanged="ShelfLowerSlide_TextChanged"  />
                         <TextBox x:Name="ShelfDistanceSlide" Grid.Row="2" Grid.Column="2"  FontSize="25"  TextWrapping="Wrap" HorizontalAlignment="Center" BorderBrush="LightGray" VerticalAlignment="Center" Background="LightGray" FontWeight="Bold" Text="325" TextChanged="ShelfDistanceSlide_TextChanged"  />
                         <TextBox x:Name="ShelfAmountSlide" Grid.Row="3" Grid.Column="2"   FontSize="25" TextWrapping="Wrap" HorizontalAlignment="Center" BorderBrush="LightGray" VerticalAlignment="Center" Background="LightGray" FontWeight="Bold" Text="3" TextChanged="ShelfAmountSlide_TextChanged" />
+                        
 
-
-                        <!-- Вывод данных -->
+                            <!-- Вывод данных -->
                         <TextBlock Name ="ShelfLowerSlide1000" Grid.Row="1" Grid.Column="3" FontSize="30" Margin="2" VerticalAlignment="Center" HorizontalAlignment="Center" TextWrapping="Wrap" TextAlignment="Left" Foreground="Lavender">5</TextBlock>
                         <TextBlock Name ="ShelfDistanceSlide1000" Grid.Row="2" Grid.Column="3" FontSize="30" Margin="2" VerticalAlignment="Center" HorizontalAlignment="Center" TextWrapping="Wrap" TextAlignment="Left" Foreground="Lavender">5</TextBlock>
                         <TextBlock Name ="ShelfAmountSlide1000" Grid.Row="3" Grid.Column="3" FontSize="30" Margin="2" VerticalAlignment="Center" HorizontalAlignment="Center" TextWrapping="Wrap" TextAlignment="Left" Foreground="Lavender">5</TextBlock>
@@ -648,6 +656,7 @@
                     </Grid>
                 </TabItem.Content>
             </TabItem>
+          
             <!--Слайд 1000-->
             <TabItem x:Name="TabSlide14">
                 <TabItem.Header>
@@ -673,6 +682,7 @@
                             <RowDefinition Height="*"/>
                             <RowDefinition Height="*"/>
                             <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
                         </Grid.RowDefinitions>
                         <!-- Заполнение Квадаратов и заливка  -->
                         <Rectangle Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" Fill="Black" Stroke="Lavender" StrokeThickness="1"/>
@@ -718,6 +728,12 @@
                         <TextBlock Grid.Row="3" Grid.Column="1" FontSize="20" Margin="2" VerticalAlignment="Center" HorizontalAlignment="Left" TextWrapping="Wrap" TextAlignment="Left" Foreground="Lavender">Количество полок</TextBlock>
                         <TextBlock Grid.Row="4" Grid.Column="1" FontSize="20" Margin="2" VerticalAlignment="Center" HorizontalAlignment="Left" TextWrapping="Wrap" TextAlignment="Left" Foreground="Lavender">Высота верхней полки</TextBlock>
                         <TextBlock Grid.Row="5" Grid.Column="1" FontSize="20" Margin="2" VerticalAlignment="Center" HorizontalAlignment="Left" TextWrapping="Wrap" TextAlignment="Left" Foreground="Lavender">Высота стойки</TextBlock>
+                        <CheckBox x:Name="Slide1000Tall"   Grid.Row="6" Grid.Column="1" FontSize="10"  VerticalAlignment="Center" HorizontalAlignment="Left"  Foreground="Lavender">
+                            Таль
+                            <CheckBox.LayoutTransform>
+                                <ScaleTransform ScaleX="2" ScaleY="2" />
+                            </CheckBox.LayoutTransform>
+                        </CheckBox>
                         <!-- Ввод данных -->
 
                         <TextBox x:Name="ShelfLowerSlide10000" Grid.Row="1" Grid.Column="2"  FontSize="25"   TextWrapping="Wrap" HorizontalAlignment="Center" BorderBrush="LightGray" VerticalAlignment="Center" Background="LightGray" FontWeight="Bold" Text="42" TextChanged="ShelfLowerSlide10000_TextChanged"  />

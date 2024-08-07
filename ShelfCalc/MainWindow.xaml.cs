@@ -313,6 +313,7 @@ namespace ShelfCalc
             ShelfLowerSGSSB.Text = "232";
             ShelfDistanceSGSSB.Text = "450";
             ShelfAmountSGSSB.Text = "4";
+            Slide1400Tall.IsChecked = false;
 
 
 
