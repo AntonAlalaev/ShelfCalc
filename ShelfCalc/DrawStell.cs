@@ -17,7 +17,8 @@ namespace ShelfCalc
         /// <param name="ShelfLength">Длина полки</param>
         /// <param name="LowerShelfDraw">Рисовать нижнюю полку или нет</param>
         /// <param name="DoubleSide">Двухсторонний или односторонний стеллаж</param>
-        public static void Draw(StellCalc Stellar, double ShelfWidthClear, double ShelfLength, bool LowerShelfDraw = true, bool DoubleSide = true)
+        /// <param name="DrawTall">Надо рисовать таль или нет</param>
+        public static void Draw(StellCalc Stellar, double ShelfWidthClear, double ShelfLength, bool LowerShelfDraw = true, bool DoubleSide = true, bool DrawTall = false)
         {
             // получаем путь к сборке
             System.IO.FileStream str = System.Reflection.Assembly.GetExecutingAssembly().GetFile("ShelfCalc.dll");
@@ -55,7 +56,19 @@ namespace ShelfCalc
             InsertionPoint = new Point3d(InsertionPoint.X + ShelfWidthClear + 1000, InsertionPoint.Y, InsertionPoint.Z);
             DrawFront(Stellar, LowerShelfDraw, ShelfLength, PathToSourceFile, CurrentDocument, InsertionPoint);
 
+            // если надо нарисовать таль
+            if (DrawTall == true)
+            { 
+
+            }
+
         }
+
+
+
+
+
+
 
         /// <summary>
         /// Рисует вид стеллажа спереди

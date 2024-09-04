@@ -14,8 +14,19 @@ namespace ShelfCalc
         /// </summary>
         public double EnterredShelfDistance;
 
-        public Slide1400(string ShelfDistance, string LowerShelf, string Amount) : base(ShelfDistance, LowerShelf, Amount)
+        /// <summary>
+        /// Признак тали
+        /// </summary>
+        public bool Tall;
+
+        /// <summary>
+        /// Приращение высоты стоек при добавлении тали
+        /// </summary>
+        private const int TallIncrement = 700;
+
+        public Slide1400(string ShelfDistance, string LowerShelf, string Amount, bool tall = false) : base(ShelfDistance, LowerShelf, Amount)
         {
+            Tall = tall;
             Step = 50;
             Shift = 21.5; // was 28.5
             StandHeightShift = 5;
@@ -76,6 +87,7 @@ namespace ShelfCalc
 
 
             GetShelfCalc();
+
             //ShelfTopShiftDistanceX;
             //ShelfTopShiftDistanceY;
 
@@ -145,6 +157,12 @@ namespace ShelfCalc
             UpperShelf = ShelfPosArray[ShelfPosArray.Count - 1];
             TotalHeight = UpperShelf;
             StandHeight = UpperShelf - StandHeightShift;
+            // если есть таль то высота стоек и высота стеллажа прирастает
+            if (Tall==true)
+            {
+                StandHeight = StandHeight + TallIncrement;
+                TotalHeight = UpperShelf + TallIncrement;
+            }
         }
 
 

@@ -159,7 +159,21 @@ namespace ShelfCalc
                 {
                     return;
                 }
-                Slide1400 It25 = new Slide1400(ShelfDistanceSlide.Text, ShelfLowerSlide.Text, ShelfAmountSlide.Text);
+
+                bool TallChecked1400 = false;
+                if (Slide1400Tall.IsChecked is null)
+                {
+                    TallChecked1400 = false;
+                }
+                else
+                {
+                    if (Slide1400Tall.IsChecked == true)
+                        TallChecked1400 = true;
+                    else
+                        TallChecked1400 = false;
+                }
+
+                Slide1400 It25 = new Slide1400(ShelfDistanceSlide.Text, ShelfLowerSlide.Text, ShelfAmountSlide.Text, TallChecked1400);
                 //SeriesL125 It125 = new SeriesL125(ShelfDistanceL.Text, ShelfLowerL.Text, ShelfAmountL.Text);
                 RefreshFilds(It25, ShelfLowerSlide1000, ShelfStandHeightSlide1000, ShelfAmountSlide1000, ShelfDistanceSlide1000, ShelfUpperHeightSlide1000, null, ShelfPositionSlide1000);
                 //RefreshFilds(It125, ShelfLowerL125, ShelfStandHeightL125, ShelfAmountL125, ShelfDistanceL125, ShelfUpperHeightL125, ShelfHeightL125, ShelfPositionL125);
@@ -221,8 +235,20 @@ namespace ShelfCalc
                 {
                     return;
                 }
+                bool TallChecked1000 = false;
+                if (Slide1000Tall.IsChecked is null)
+                {
+                    TallChecked1000 = false;
+                }
+                else
+                {
+                    if (Slide1000Tall.IsChecked==true)
+                        TallChecked1000 = true;
+                    else
+                        TallChecked1000 = false;
+                }
                 //ShelfLowerSlide100000
-                Slide1000 It25 = new Slide1000(ShelfDistanceSlide10000.Text, ShelfLowerSlide10000.Text, ShelfAmountSlide10000.Text);
+                Slide1000 It25 = new Slide1000(ShelfDistanceSlide10000.Text, ShelfLowerSlide10000.Text, ShelfAmountSlide10000.Text, TallChecked1000);
                 //SeriesL125 It125 = new SeriesL125(ShelfDistanceL.Text, ShelfLowerL.Text, ShelfAmountL.Text);
                 RefreshFilds(It25, ShelfLowerSlide100000, ShelfStandHeightSlide10000, ShelfAmountSlide100000, ShelfDistanceSlide100000, ShelfUpperHeightSlide10000, null, ShelfPositionSlide10000);
                 //RefreshFilds(It125, ShelfLowerL125, ShelfStandHeightL125, ShelfAmountL125, ShelfDistanceL125, ShelfUpperHeightL125, ShelfHeightL125, ShelfPositionL125);
@@ -706,16 +732,44 @@ namespace ShelfCalc
 
             if (TabSlide.IsSelected)
             {
+
+                bool TallChecked1000 = false;
+                if (Slide1400Tall.IsChecked is null)
+                {
+                    TallChecked1000 = false;
+                }
+                else
+                {
+                    if (Slide1400Tall.IsChecked == true)
+                        TallChecked1000 = true;
+                    else
+                        TallChecked1000 = false;
+                }
+                MessageBox.Show(TallChecked1000.ToString());
                 this.Hide();
-                DrawStell.Draw(new Slide1400(ShelfDistanceSlide.Text, ShelfLowerSlide.Text, ShelfAmountSlide.Text), Glubina, Dlina, true, false);
+                DrawStell.Draw(new Slide1400(ShelfDistanceSlide.Text, ShelfLowerSlide.Text, ShelfAmountSlide.Text, TallChecked1000), Glubina, Dlina, true, false, true);
                 this.Show();
             }
 
             if (TabSlide14.IsSelected)
             {
+                bool TallChecked1400 = false;
+                if (Slide1000Tall.IsChecked is null)
+                {
+                    TallChecked1400 = false;
+                }
+                else
+                {
+                    if (Slide1000Tall.IsChecked == true)
+                        TallChecked1400 = true;
+                    else
+                        TallChecked1400 = false;
+                }
+                MessageBox.Show(TallChecked1400.ToString());
                 this.Hide();
                 //ShelfDistanceSlide10000 is null || ShelfLowerSlide10000  is null || ShelfAmountSlide10000
-                DrawStell.Draw(new Slide1000(ShelfDistanceSlide10000.Text, ShelfLowerSlide10000.Text, ShelfAmountSlide10000.Text), Glubina, Dlina, true, false);
+
+                DrawStell.Draw(new Slide1000(ShelfDistanceSlide10000.Text, ShelfLowerSlide10000.Text, ShelfAmountSlide10000.Text, TallChecked1400), Glubina, Dlina, true, false, true);
                 this.Show();
             }
             // если вкладка СГС выбрана
@@ -787,5 +841,14 @@ namespace ShelfCalc
             SBSGSReCalc();
         }
 
+        private void Slide1000Tall_Click(object sender, RoutedEventArgs e)
+        {
+            Slide1000ReCalc();
+        }
+
+        private void Slide1400Tall_Click(object sender, RoutedEventArgs e)
+        {
+            Slide1400ReCalc();
+        }
     }
 }

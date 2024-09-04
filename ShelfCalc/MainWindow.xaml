@@ -634,7 +634,7 @@
                         <TextBlock Grid.Row="3" Grid.Column="1" FontSize="20" Margin="2" VerticalAlignment="Center" HorizontalAlignment="Left" TextWrapping="Wrap" TextAlignment="Left" Foreground="Lavender">Количество полок</TextBlock>
                         <TextBlock Grid.Row="4" Grid.Column="1" FontSize="20" Margin="2" VerticalAlignment="Center" HorizontalAlignment="Left" TextWrapping="Wrap" TextAlignment="Left" Foreground="Lavender">Высота верхней полки</TextBlock>
                         <TextBlock Grid.Row="5" Grid.Column="1" FontSize="20" Margin="2" VerticalAlignment="Center" HorizontalAlignment="Left" TextWrapping="Wrap" TextAlignment="Left" Foreground="Lavender">Высота стойки</TextBlock>
-                        <CheckBox x:Name="Slide1400Tall"   Grid.Row="6" Grid.Column="1" FontSize="10"  VerticalAlignment="Center" HorizontalAlignment="Left"  Foreground="Lavender">
+                        <CheckBox x:Name="Slide1400Tall"   Grid.Row="6" Grid.Column="1" FontSize="10"  VerticalAlignment="Center" HorizontalAlignment="Left"  Foreground="Lavender" Click="Slide1400Tall_Click">
                             Таль
                             <CheckBox.LayoutTransform>
                                 <ScaleTransform ScaleX="2" ScaleY="2" />
@@ -728,7 +728,7 @@
                         <TextBlock Grid.Row="3" Grid.Column="1" FontSize="20" Margin="2" VerticalAlignment="Center" HorizontalAlignment="Left" TextWrapping="Wrap" TextAlignment="Left" Foreground="Lavender">Количество полок</TextBlock>
                         <TextBlock Grid.Row="4" Grid.Column="1" FontSize="20" Margin="2" VerticalAlignment="Center" HorizontalAlignment="Left" TextWrapping="Wrap" TextAlignment="Left" Foreground="Lavender">Высота верхней полки</TextBlock>
                         <TextBlock Grid.Row="5" Grid.Column="1" FontSize="20" Margin="2" VerticalAlignment="Center" HorizontalAlignment="Left" TextWrapping="Wrap" TextAlignment="Left" Foreground="Lavender">Высота стойки</TextBlock>
-                        <CheckBox x:Name="Slide1000Tall"   Grid.Row="6" Grid.Column="1" FontSize="10"  VerticalAlignment="Center" HorizontalAlignment="Left"  Foreground="Lavender">
+                        <CheckBox x:Name="Slide1000Tall"   Grid.Row="6" Grid.Column="1" FontSize="10"  VerticalAlignment="Center" HorizontalAlignment="Left"  Foreground="Lavender" Click="Slide1000Tall_Click" >
                             Таль
                             <CheckBox.LayoutTransform>
                                 <ScaleTransform ScaleX="2" ScaleY="2" />
