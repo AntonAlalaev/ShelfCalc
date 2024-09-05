@@ -86,6 +86,13 @@ namespace ShelfCalc
             LowerShelfBlockName = "ShelfSectionBottomSlide1000";
             LowerShelfFrontBlockName = "ShelfFrontBottomSlide1000";
 
+            SideTallBlockName = "Tall_side";
+            FrontTallBlockName = "TallFront";
+
+            TallLengthIncrementX = 280;
+            TallWidthIncrementX = 0;
+            TallLengthShiftX = -140;
+
             GetShelfCalc();
             //ShelfTopShiftDistanceX;
             //ShelfTopShiftDistanceY;
@@ -114,6 +121,17 @@ namespace ShelfCalc
         }
         */
 
+        /// <summary>
+        /// Вылет балки тали
+        /// </summary>
+        /// <param name="WidthClear"></param>
+        /// <returns></returns>
+        public override double TallLedge(double WidthClear = 800)
+        {
+            return 350;
+        }
+
+        //TallLedge = 350;
 
         /// <summary>
         /// Рассчитиывает положение полок по заданному шагу перфорации
@@ -158,7 +176,7 @@ namespace ShelfCalc
             StandHeight = UpperShelf - StandHeightShift;
 
             // если есть таль то высота стоек и высота стеллажа прирастает
-            if (Tall==true)
+            if (Tall == true)
             {
                 StandHeight = StandHeight + TallIncrement;
                 TotalHeight = UpperShelf + TallIncrement;

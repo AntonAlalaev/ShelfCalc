@@ -261,11 +261,44 @@ namespace ShelfCalc
         /// </summary>
         internal double MinimalShelfDistance;
 
+        /// <summary>
+        /// Имя блока тали для вида спереди
+        /// </summary>
+        public string FrontTallBlockName;
+
+        /// <summary>
+        /// Имя блока тали для вида сбоку
+        /// </summary>
+        public string SideTallBlockName;
+
+        /// <summary>
+        /// Приращение длины блока тали для вида спереди по X
+        /// </summary>
+        public double TallLengthIncrementX;
+
+        /// <summary>
+        /// Приращение длины тали по Х для вида сбоку
+        /// </summary>
+        public double TallWidthIncrementX;
+
+        public double TallLengthShiftX;
+
 
         #endregion
 
 
         // Общие расчетные процедуры
+
+        /// <summary>
+        /// Глубина вылета балки тали
+        /// </summary>
+        /// <param name="WidthClear"></param>
+        /// <returns></returns>
+        public virtual double TallLedge(double WidthClear = 800)
+        {
+            return WidthClear / 2 + 50;
+        }
+
 
         /// <summary>
         /// Определеяет расстояние между полками согласно шагу

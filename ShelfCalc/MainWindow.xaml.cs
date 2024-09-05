@@ -745,9 +745,9 @@ namespace ShelfCalc
                     else
                         TallChecked1000 = false;
                 }
-                MessageBox.Show(TallChecked1000.ToString());
+                // MessageBox.Show(TallChecked1000.ToString());
                 this.Hide();
-                DrawStell.Draw(new Slide1400(ShelfDistanceSlide.Text, ShelfLowerSlide.Text, ShelfAmountSlide.Text, TallChecked1000), Glubina, Dlina, true, false, true);
+                DrawStell.Draw(new Slide1400(ShelfDistanceSlide.Text, ShelfLowerSlide.Text, ShelfAmountSlide.Text, TallChecked1000), Glubina, Dlina, true, false, TallChecked1000);
                 this.Show();
             }
 
@@ -765,11 +765,11 @@ namespace ShelfCalc
                     else
                         TallChecked1400 = false;
                 }
-                MessageBox.Show(TallChecked1400.ToString());
+                // MessageBox.Show(TallChecked1400.ToString());
                 this.Hide();
                 //ShelfDistanceSlide10000 is null || ShelfLowerSlide10000  is null || ShelfAmountSlide10000
 
-                DrawStell.Draw(new Slide1000(ShelfDistanceSlide10000.Text, ShelfLowerSlide10000.Text, ShelfAmountSlide10000.Text, TallChecked1400), Glubina, Dlina, true, false, true);
+                DrawStell.Draw(new Slide1000(ShelfDistanceSlide10000.Text, ShelfLowerSlide10000.Text, ShelfAmountSlide10000.Text, TallChecked1400), Glubina, Dlina, true, false, TallChecked1400);
                 this.Show();
             }
             // если вкладка СГС выбрана

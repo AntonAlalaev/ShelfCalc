@@ -51,23 +51,59 @@ namespace ShelfCalc
                 InsertionPoint = new Point3d(InsertionPoint.X + ShelfWidthClear, InsertionPoint.Y, InsertionPoint.Z);
             }
 
-            DrawSection(Stellar, ShelfWidthClear, LowerShelfDraw, DoubleSide, PathToSourceFile, CurrentDocument, InsertionPoint);
-
-            InsertionPoint = new Point3d(InsertionPoint.X + ShelfWidthClear + 1000, InsertionPoint.Y, InsertionPoint.Z);
-            DrawFront(Stellar, LowerShelfDraw, ShelfLength, PathToSourceFile, CurrentDocument, InsertionPoint);
+            DrawSection(Stellar, ShelfWidthClear, LowerShelfDraw, DoubleSide, PathToSourceFile, CurrentDocument, InsertionPoint, DrawTall);
 
             // если надо нарисовать таль
             if (DrawTall == true)
-            { 
-
+            {
+                // рассчет вылета тали
+                
+                DrawTallonScreen(Stellar, ShelfLength, ShelfWidthClear, Stellar.TallLedge(ShelfWidthClear), PathToSourceFile, CurrentDocument, InsertionPoint);
             }
+
+
+            InsertionPoint = new Point3d(InsertionPoint.X + ShelfWidthClear + 1000 + ShelfWidthClear / 2, InsertionPoint.Y, InsertionPoint.Z);
+            DrawFront(Stellar, LowerShelfDraw, ShelfLength, PathToSourceFile, CurrentDocument, InsertionPoint);
+
+
 
         }
 
 
 
+        /// <summary>
+        /// Прорисовка тали
+        /// </summary>
+        /// <param name="Stellar">экземпляр класса стеллажа</param>
+        /// <param name="ShelfLength">Длина полки</param>
+        /// <param name="ShelfWidth">Глубина полки</param>
+        /// <param name="TallLedge">Выступ тали</param>
+        /// <param name="PathToSourceFile">Путь к файлу с блоками</param>
+        /// <param name="CurrentDocument">Текущий документ автокада</param>
+        /// <param name="InsertionPoint">Точка вставки</param>
+        private static void DrawTallonScreen(StellCalc Stellar, double ShelfLength, double ShelfWidth, double TallLedge, string PathToSourceFile, Document CurrentDocument, Point3d InsertionPoint)
+        {
+            // ------------------------
+            // Копируем описание блоков
+            // ------------------------
 
+            // Вид сбоку
+            BlockOperation.CloneBlockToDocument(CurrentDocument, PathToSourceFile, Stellar.SideTallBlockName);
 
+            // Вид спереди
+            BlockOperation.CloneBlockToDocument(CurrentDocument, PathToSourceFile, Stellar.FrontTallBlockName);
+
+            // Создаем коллекцию с параметрами блока
+            Dictionary<string, double> TallParametrs = new Dictionary<string, double>();
+            TallParametrs.Add("Length", ShelfWidth + TallLedge + Stellar.TallWidthIncrementX); // общая длина балки тали
+            TallParametrs.Add("Length1", ShelfWidth + Stellar.TallWidthIncrementX); // длина участка под верхние подпятники
+            // Вставляем вид сбоку с параметрами
+            BlockOperation.BRefInsertDynamic(CurrentDocument, Stellar.SideTallBlockName, TallParametrs,
+                InsertionPoint.X, InsertionPoint.Y + Stellar.StandHeight, InsertionPoint.Z);
+            Point3d FrontInsertionPoint = new Point3d(InsertionPoint.X + ShelfWidth + 1000 + ShelfWidth / 2, InsertionPoint.Y, InsertionPoint.Z);
+            BlockOperation.BRefInsertDynamic(CurrentDocument, Stellar.FrontTallBlockName, "Length", ShelfLength +Stellar.TallLengthIncrementX,
+                FrontInsertionPoint.X + Stellar.TallLengthShiftX, FrontInsertionPoint.Y + Stellar.StandHeight, FrontInsertionPoint.Z); // X + Stellar.StandFrontShiftX
+        }
 
 
         /// <summary>
@@ -191,7 +227,7 @@ namespace ShelfCalc
         /// <param name="PathToSourceFile">Путь к файлу с блоками</param>
         /// <param name="CurrentDocument">Документ Автокада в котором надо рисовать</param>
         /// <param name="InsertionPoint">Точка вставки</param>
-        private static void DrawSection(StellCalc Stellar, double ShelfWidthClear, bool LowerShelfDraw, bool DoubleSide, string PathToSourceFile, Document CurrentDocument, Point3d InsertionPoint)
+        private static void DrawSection(StellCalc Stellar, double ShelfWidthClear, bool LowerShelfDraw, bool DoubleSide, string PathToSourceFile, Document CurrentDocument, Point3d InsertionPoint, bool Tall = false)
         {
             // ------------------------
             // Копируем описание блоков
@@ -349,7 +385,7 @@ namespace ShelfCalc
 
             pt2 = new Point3d(InsertionPoint.X + Stellar.StandShiftDistanceX + ShelfWidthClear + Stellar.StandWidthIncrement,
                 InsertionPoint.Y + Stellar.StandShiftDistanceY + Stellar.StandHeight, InsertionPoint.Z);
-            DrawVerticalDimension(CurrentDocument, pt1, pt2, pt1.X + 400);
+            DrawVerticalDimension(CurrentDocument, pt1, pt2, pt1.X + 350);
 
             // рисуем размер высоты стеллажа
             if (DoubleSide)
@@ -358,7 +394,13 @@ namespace ShelfCalc
                 pt1 = new Point3d(InsertionPoint.X + Stellar.BaseShiftDistanceX + ShelfWidthClear + Stellar.BaseWidthIncrement, InsertionPoint.Y + Stellar.BaseShiftDistanceY, InsertionPoint.Z);
 
             pt2 = new Point3d(pt1.X, Stellar.ShelfPosArray[Stellar.ShelfPosArray.Count - 1] + InsertionPoint.Y, InsertionPoint.Z);
-            DrawVerticalDimension(CurrentDocument, pt1, pt2, pt1.X + 600);
+            DrawVerticalDimension(CurrentDocument, pt1, pt2, pt1.X + 500);
+
+            if (Tall == true)
+            {
+                pt2 = new Point3d(pt1.X, Stellar.StandHeight + 120 + Stellar.StandShiftDistanceY + InsertionPoint.Y, InsertionPoint.Z);
+                DrawVerticalDimension(CurrentDocument, pt1, pt2, pt1.X + 650);
+            }
 
             // рисуем горизонтальные размеры по базе
             if (DoubleSide)

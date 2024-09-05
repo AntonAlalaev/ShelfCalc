@@ -24,7 +24,7 @@ namespace ShelfCalc
         /// </summary>
         private const int TallIncrement = 700;
 
-        public Slide1400(string ShelfDistance, string LowerShelf, string Amount, bool tall = false) : base(ShelfDistance, LowerShelf, Amount)
+        public Slide1400(string ShelfDistance, string LowerShelf, string Amount, bool tall = false, double Width = 800) : base(ShelfDistance, LowerShelf, Amount)
         {
             Tall = tall;
             Step = 50;
@@ -84,7 +84,12 @@ namespace ShelfCalc
             StandFrontShiftCoeff = -18.5;
             LowerShelfBlockName = ShelfBlockName;
             LowerShelfFrontBlockName = ShelfFrontBlockName;
-
+            SideTallBlockName = "Tall_side";
+            FrontTallBlockName = "TallFront";
+            TallLengthIncrementX = 280;
+            TallWidthIncrementX = 0;
+            TallLengthShiftX = -140;
+            //TallLedge = Width / 2 + 50;
 
             GetShelfCalc();
 
@@ -158,7 +163,7 @@ namespace ShelfCalc
             TotalHeight = UpperShelf;
             StandHeight = UpperShelf - StandHeightShift;
             // если есть таль то высота стоек и высота стеллажа прирастает
-            if (Tall==true)
+            if (Tall == true)
             {
                 StandHeight = StandHeight + TallIncrement;
                 TotalHeight = UpperShelf + TallIncrement;
