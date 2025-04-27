@@ -72,6 +72,15 @@ namespace ShelfCalc
             LowerShelfBlockName = "ShelfSectionBottomSGS";
             LowerShelfFrontBlockName = "ShelfFrontBottomSGS";
 
+            // Заполняем словарь с именами блоков для гребенки
+            CombBlockName = new Dictionary<int, string>();
+
+            // 50, 70, 100, 120, 150
+            CombBlockName.Add(50, "Comb_50");
+            CombBlockName.Add(70, "Comb_70");
+            CombBlockName.Add(100, "Comb_100");
+            CombBlockName.Add(120, "Comb_120");
+            CombBlockName.Add(150, "Comb_150");
             //рассчет положения полок
             GetShelfCalc();
 

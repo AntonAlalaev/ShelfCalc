@@ -775,15 +775,65 @@ namespace ShelfCalc
             // если вкладка СГС выбрана
             if (TabSGS.IsSelected)
             {
-                this.Hide();
+                
                 //ShelfDistanceSlide10000 is null || ShelfLowerSlide10000  is null || ShelfAmountSlide10000
-                DrawStell.Draw(new SGS(ShelfDistanceSGS.Text, ShelfLowerSGS.Text, ShelfAmountSGS.Text), Glubina, Dlina, true, false);
+                bool CombSelected = false;
+                if (SGSComb.IsChecked is null)
+                {
+                    CombSelected = false;
+                }
+                else
+                { 
+                    if (SGSComb.IsChecked == true)
+                        CombSelected = true;
+                    else
+                        CombSelected = false;
+                }
+                int Comb_size = 0;
+                if (CombSelected)
+                {
+                    // находим размер Comb_Size
+                    if (SGSCombSize.Text is null)
+                    {
+                    }
+                    else
+                    {
+                        //Comb_size = Int32.Parse(((ComboBoxItem)SGSCombSize.SelectedItem).Content.ToString());
+                        Comb_size = Int32.Parse(SGSCombSize.Text);
+                    }
+                }
+                this.Hide();
+                DrawStell.Draw(new SGS(ShelfDistanceSGS.Text, ShelfLowerSGS.Text, ShelfAmountSGS.Text), Glubina, Dlina, true, false, false, Comb_size);
                 this.Show();
 
             }
 
             if (TabSGSSB.IsSelected)
             {
+                bool CombSelected = false;
+                if (SB_SGSComb.IsChecked is null)
+                {
+                    CombSelected = false;
+                }
+                else
+                {
+                    if (SB_SGSComb.IsChecked == true)
+                        CombSelected = true;
+                    else
+                        CombSelected = false;
+                }
+                int Comb_size = 0;
+                if (CombSelected)
+                {
+                    // находим размер Comb_Size
+                    if (SB_SGSCombSize.Text is null)
+                    {
+                    }
+                    else
+                    {
+                        Comb_size = Int32.Parse(SB_SGSCombSize.Text);
+                    }
+                }
                 this.Hide();
                 //ShelfDistanceSlide10000 is null || ShelfLowerSlide10000  is null || ShelfAmountSlide10000
                 DrawStell.Draw(new SBSGS(ShelfDistanceSGSSB.Text, ShelfLowerSGSSB.Text, ShelfAmountSGSSB.Text), Glubina, Dlina, true, false);

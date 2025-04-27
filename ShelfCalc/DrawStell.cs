@@ -18,7 +18,7 @@ namespace ShelfCalc
         /// <param name="LowerShelfDraw">Рисовать нижнюю полку или нет</param>
         /// <param name="DoubleSide">Двухсторонний или односторонний стеллаж</param>
         /// <param name="DrawTall">Надо рисовать таль или нет</param>
-        public static void Draw(StellCalc Stellar, double ShelfWidthClear, double ShelfLength, bool LowerShelfDraw = true, bool DoubleSide = true, bool DrawTall = false)
+        public static void Draw(StellCalc Stellar, double ShelfWidthClear, double ShelfLength, bool LowerShelfDraw = true, bool DoubleSide = true, bool DrawTall = false, int CombSize = 0)
         {
             // получаем путь к сборке
             System.IO.FileStream str = System.Reflection.Assembly.GetExecutingAssembly().GetFile("ShelfCalc.dll");
@@ -51,21 +51,18 @@ namespace ShelfCalc
                 InsertionPoint = new Point3d(InsertionPoint.X + ShelfWidthClear, InsertionPoint.Y, InsertionPoint.Z);
             }
 
-            DrawSection(Stellar, ShelfWidthClear, LowerShelfDraw, DoubleSide, PathToSourceFile, CurrentDocument, InsertionPoint, DrawTall);
+            DrawSection(Stellar, ShelfWidthClear, LowerShelfDraw, DoubleSide, PathToSourceFile, CurrentDocument, InsertionPoint, DrawTall, CombSize);
 
             // если надо нарисовать таль
             if (DrawTall == true)
             {
-                // рассчет вылета тали
-                
+                // рассчет вылета тали                
                 DrawTallonScreen(Stellar, ShelfLength, ShelfWidthClear, Stellar.TallLedge(ShelfWidthClear), PathToSourceFile, CurrentDocument, InsertionPoint);
             }
 
 
             InsertionPoint = new Point3d(InsertionPoint.X + ShelfWidthClear + 1000 + ShelfWidthClear / 2, InsertionPoint.Y, InsertionPoint.Z);
-            DrawFront(Stellar, LowerShelfDraw, ShelfLength, PathToSourceFile, CurrentDocument, InsertionPoint);
-
-
+            DrawFront(Stellar, LowerShelfDraw, ShelfLength, PathToSourceFile, CurrentDocument, InsertionPoint, CombSize);
 
         }
 
@@ -115,7 +112,7 @@ namespace ShelfCalc
         /// <param name="PathToSourceFile">Путь к файлу с блоками</param>
         /// <param name="CurrentDocument">Текущий документ автокада</param>
         /// <param name="InsertionPoint">Точка вставки</param>
-        private static void DrawFront(StellCalc Stellar, bool LowerShelfDraw, double ShelfLength, string PathToSourceFile, Document CurrentDocument, Point3d InsertionPoint)
+        private static void DrawFront(StellCalc Stellar, bool LowerShelfDraw, double ShelfLength, string PathToSourceFile, Document CurrentDocument, Point3d InsertionPoint, int CombSize = 0)
         {
             // ------------------------
             // Копируем описание блоков
@@ -149,6 +146,14 @@ namespace ShelfCalc
                 BlockOperation.BRefInsertDynamic(CurrentDocument, Stellar.LowerShelfFrontBlockName, "Length", ShelfLength + Stellar.ShelfFrontLengthIncrement,
                     InsertionPoint.X + Stellar.ShelfFrontShifX, InsertionPoint.Y + Stellar.ShelfShiftDistanceY + Stellar.LowerShelf, InsertionPoint.Z);
 
+            // Если надо нарисовать гребенку проверяем
+            if (CombSize > 0)
+            { 
+
+            }
+
+
+
             for (int i = 0; i < Stellar.ShelfPosArray.Count; i++)
             {
                 double Item = Stellar.ShelfPosArray[i];
@@ -161,6 +166,14 @@ namespace ShelfCalc
                 {
                     BlockOperation.BRefInsertDynamic(CurrentDocument, Stellar.ShelfFrontBlockName, "Length", ShelfLength + Stellar.ShelfFrontLengthIncrement,
                         InsertionPoint.X + Stellar.ShelfFrontShifX, InsertionPoint.Y + Stellar.ShelfShiftDistanceY + Item, InsertionPoint.Z);
+                }
+                if (CombSize > 0 && !(Stellar.CombBlockName is null) && Stellar.CombBlockName.ContainsKey(CombSize)) 
+                {
+                    // Клонируем блок гребенки
+                    BlockOperation.CloneBlockToDocument(CurrentDocument, PathToSourceFile, Stellar.CombBlockName[CombSize]);
+                    // рисуем гребенку
+                    BlockOperation.BRefInsertDynamic(CurrentDocument, Stellar.CombBlockName[CombSize], "Length", ShelfLength + Stellar.ShelfTopFrontLengthIncrement,
+                        InsertionPoint.X + Stellar.ShelfTopFrontShifX, InsertionPoint.Y + Stellar.ShelfTopShiftDistanceY + Item, InsertionPoint.Z);
                 }
 
             }
@@ -227,7 +240,7 @@ namespace ShelfCalc
         /// <param name="PathToSourceFile">Путь к файлу с блоками</param>
         /// <param name="CurrentDocument">Документ Автокада в котором надо рисовать</param>
         /// <param name="InsertionPoint">Точка вставки</param>
-        private static void DrawSection(StellCalc Stellar, double ShelfWidthClear, bool LowerShelfDraw, bool DoubleSide, string PathToSourceFile, Document CurrentDocument, Point3d InsertionPoint, bool Tall = false)
+        private static void DrawSection(StellCalc Stellar, double ShelfWidthClear, bool LowerShelfDraw, bool DoubleSide, string PathToSourceFile, Document CurrentDocument, Point3d InsertionPoint, bool Tall = false, int comb =0)
         {
             // ------------------------
             // Копируем описание блоков

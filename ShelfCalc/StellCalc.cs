@@ -227,6 +227,10 @@ namespace ShelfCalc
         /// </summary>
         internal double SecondShelfPositionOverride;
 
+        /// <summary>
+        /// Словарь с наименованием блоков для гребенки
+        /// </summary>
+        public Dictionary<int, string> CombBlockName;
 
         // Выходные цифры
         #region 
