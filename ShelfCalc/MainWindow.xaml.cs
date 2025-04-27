@@ -850,5 +850,15 @@ namespace ShelfCalc
         {
             Slide1400ReCalc();
         }
+
+        private void SB_SGSComb_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void SGSComb_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
