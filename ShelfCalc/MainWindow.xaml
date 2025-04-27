@@ -777,6 +777,8 @@
                             <RowDefinition Height="*"/>
                             <RowDefinition Height="*"/>
                             <RowDefinition Height="*"/>
+                            <!-- Добавление строки для установки гребенки для картин -->
+                            <RowDefinition Height="*"/>
                         </Grid.RowDefinitions>
                         <!-- Заполнение Квадаратов и заливка  -->
                         <Rectangle Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" Fill="Black" Stroke="Lavender" StrokeThickness="1"/>
