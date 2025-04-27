@@ -829,8 +829,21 @@
                         <TextBox x:Name="ShelfLowerSGS" Grid.Row="1" Grid.Column="2"  FontSize="25"   TextWrapping="Wrap" HorizontalAlignment="Center" BorderBrush="LightGray" VerticalAlignment="Center" Background="LightGray" FontWeight="Bold" Text="42" TextChanged="ShelfLowerSGS_TextChanged"  />
                         <TextBox x:Name="ShelfDistanceSGS" Grid.Row="2" Grid.Column="2"  FontSize="25"  TextWrapping="Wrap" HorizontalAlignment="Center" BorderBrush="LightGray" VerticalAlignment="Center" Background="LightGray" FontWeight="Bold" Text="325" TextChanged="ShelfDistanceSGS_TextChanged"   />
                         <TextBox x:Name="ShelfAmountSGS" Grid.Row="3" Grid.Column="2"   FontSize="25" TextWrapping="Wrap" HorizontalAlignment="Center" BorderBrush="LightGray" VerticalAlignment="Center" Background="LightGray" FontWeight="Bold" Text="3" TextChanged="ShelfAmountSGS_TextChanged"  />
-
-
+                        <StackPanel Grid.Row ="6" Grid.Column="1" Grid.ColumnSpan="4" Orientation="Horizontal" HorizontalAlignment="Stretch" >
+                        <CheckBox x:Name="SGSComb"  FontSize="10"  VerticalAlignment="Center" HorizontalAlignment="Left"  Foreground="Lavender" Click="SGSComb_click" >
+                            Гребёнка
+                            <CheckBox.LayoutTransform>
+                                <ScaleTransform ScaleX="2" ScaleY="2" />
+                            </CheckBox.LayoutTransform>
+                        </CheckBox>
+                        <ComboBox Width="100" Height="30"  VerticalAlignment="Center" HorizontalAlignment="Left" Margin="17">
+                            <ComboBoxItem Content="60"/>
+                            <ComboBoxItem Content="70"/>
+                            <ComboBoxItem Content="100"/>
+                            <ComboBoxItem Content="120"/>
+                            <ComboBoxItem Content="150"/>
+                        </ComboBox>
+                        </StackPanel>
                         <!-- Вывод данных -->
                         <TextBlock Name ="ShelfLowerSGS_" Grid.Row="1" Grid.Column="3" FontSize="30" Margin="2" VerticalAlignment="Center" HorizontalAlignment="Center" TextWrapping="Wrap" TextAlignment="Left" Foreground="Lavender">5</TextBlock>
                         <TextBlock Name ="ShelfDistanceSGS_" Grid.Row="2" Grid.Column="3" FontSize="30" Margin="2" VerticalAlignment="Center" HorizontalAlignment="Center" TextWrapping="Wrap" TextAlignment="Left" Foreground="Lavender">5</TextBlock>
@@ -862,6 +875,7 @@
                         </Grid.ColumnDefinitions>
                         <Grid.RowDefinitions>
                             <RowDefinition Height="0.7*"/>
+                            <RowDefinition Height="*"/>
                             <RowDefinition Height="*"/>
                             <RowDefinition Height="*"/>
                             <RowDefinition Height="*"/>
@@ -917,6 +931,21 @@
                         <TextBox x:Name="ShelfLowerSGSSB" Grid.Row="1" Grid.Column="2"  FontSize="25"   TextWrapping="Wrap" HorizontalAlignment="Center" BorderBrush="LightGray" VerticalAlignment="Center" Background="LightGray" FontWeight="Bold" Text="42" TextChanged="ShelfLowerSGSSB_TextChanged"  Grid.ColumnSpan="1"  />
                         <TextBox x:Name="ShelfDistanceSGSSB" Grid.Row="2" Grid.Column="2"  FontSize="25"  TextWrapping="Wrap" HorizontalAlignment="Center" BorderBrush="LightGray" VerticalAlignment="Center" Background="LightGray" FontWeight="Bold" Text="325"  Margin="0,0,0,0" TextChanged="ShelfDistanceSGSSB_TextChanged"   />
                         <TextBox x:Name="ShelfAmountSGSSB" Grid.Row="3" Grid.Column="2"   FontSize="25" TextWrapping="Wrap" HorizontalAlignment="Center" BorderBrush="LightGray" VerticalAlignment="Center" Background="LightGray" FontWeight="Bold" Text="3"  Margin="0,0,0,0" TextChanged="ShelfAmountSGSSB_TextChanged"  />
+                        <StackPanel Grid.Row ="6" Grid.Column="1" Grid.ColumnSpan="4" Orientation="Horizontal" HorizontalAlignment="Stretch" >
+                            <CheckBox x:Name="SB_SGSComb"  FontSize="10"  VerticalAlignment="Center" HorizontalAlignment="Left"  Foreground="Lavender" Click="SB_SGSComb_click" >
+                                Гребёнка
+                                <CheckBox.LayoutTransform>
+                                    <ScaleTransform ScaleX="2" ScaleY="2" />
+                                </CheckBox.LayoutTransform>
+                            </CheckBox>
+                            <ComboBox Width="100" Height="30"  VerticalAlignment="Center" HorizontalAlignment="Left" Margin="17">
+                                <ComboBoxItem Content="60"/>
+                                <ComboBoxItem Content="70"/>
+                                <ComboBoxItem Content="100"/>
+                                <ComboBoxItem Content="120"/>
+                                <ComboBoxItem Content="150"/>
+                            </ComboBox>
+                        </StackPanel>
 
 
                         <!-- Вывод данных -->
