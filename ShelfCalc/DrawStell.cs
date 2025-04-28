@@ -172,8 +172,8 @@ namespace ShelfCalc
                     // Клонируем блок гребенки
                     BlockOperation.CloneBlockToDocument(CurrentDocument, PathToSourceFile, Stellar.CombBlockName[CombSize]);
                     // рисуем гребенку
-                    BlockOperation.BRefInsertDynamic(CurrentDocument, Stellar.CombBlockName[CombSize], "Length", ShelfLength + Stellar.ShelfTopFrontLengthIncrement,
-                        InsertionPoint.X + Stellar.ShelfTopFrontShifX, InsertionPoint.Y + Stellar.ShelfTopShiftDistanceY + Item, InsertionPoint.Z);
+                    BlockOperation.BRefInsertDynamic(CurrentDocument, Stellar.CombBlockName[CombSize], "Length", ShelfLength,
+                        InsertionPoint.X + Stellar.ShelfTopFrontShifX, InsertionPoint.Y + Stellar.ShelfTopShiftDistanceY + Item - Stellar.ShelfDistance, InsertionPoint.Z);
                 }
 
             }
