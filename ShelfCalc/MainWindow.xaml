@@ -836,7 +836,7 @@
                                 <ScaleTransform ScaleX="2" ScaleY="2" />
                             </CheckBox.LayoutTransform>
                         </CheckBox>
-                        <ComboBox Name="SGSCombSize" Width="100" Height="30"  VerticalAlignment="Center" HorizontalAlignment="Left" Margin="17">
+                        <ComboBox Name="SGSCombSize" Width="100" Height="30"  VerticalAlignment="Center" HorizontalAlignment="Left" Margin="17" FontSize="14" FontWeight="Bold">
                             <ComboBoxItem Content="50"/>
                             <ComboBoxItem Content="70"/>
                             <ComboBoxItem Content="100"/>
@@ -938,7 +938,7 @@
                                     <ScaleTransform ScaleX="2" ScaleY="2" />
                                 </CheckBox.LayoutTransform>
                             </CheckBox>
-                            <ComboBox Name ="SB_SGSCombSize" Width="100" Height="30"  VerticalAlignment="Center" HorizontalAlignment="Left" Margin="17">
+                            <ComboBox Name ="SB_SGSCombSize" Width="100" Height="60"  VerticalAlignment="Center" HorizontalAlignment="Left" Margin="17" FontSize="14" FontWeight="Bold">
                                 <ComboBoxItem Content="50"/>
                                 <ComboBoxItem Content="70"/>
                                 <ComboBoxItem Content="100"/>
