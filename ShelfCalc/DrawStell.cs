@@ -146,12 +146,6 @@ namespace ShelfCalc
                 BlockOperation.BRefInsertDynamic(CurrentDocument, Stellar.LowerShelfFrontBlockName, "Length", ShelfLength + Stellar.ShelfFrontLengthIncrement,
                     InsertionPoint.X + Stellar.ShelfFrontShifX, InsertionPoint.Y + Stellar.ShelfShiftDistanceY + Stellar.LowerShelf, InsertionPoint.Z);
 
-            // Если надо нарисовать гребенку проверяем
-            if (CombSize > 0)
-            { 
-
-            }
-
 
 
             for (int i = 0; i < Stellar.ShelfPosArray.Count; i++)
@@ -172,8 +166,14 @@ namespace ShelfCalc
                     // Клонируем блок гребенки
                     BlockOperation.CloneBlockToDocument(CurrentDocument, PathToSourceFile, Stellar.CombBlockName[CombSize]);
                     // рисуем гребенку
-                    BlockOperation.BRefInsertDynamic(CurrentDocument, Stellar.CombBlockName[CombSize], "Length", ShelfLength,
-                        InsertionPoint.X + Stellar.ShelfTopFrontShifX, InsertionPoint.Y + Stellar.ShelfTopShiftDistanceY + Item - Stellar.ShelfDistance, InsertionPoint.Z);
+
+                    // создаем словарь с параметрами блока
+                    Dictionary<string,double> dict = new Dictionary<string,double>();
+                    dict.Add("Length", ShelfLength);
+                    dict.Add("Height1", Stellar.ShelfDistance / 3);
+                    dict.Add("Height2", Stellar.ShelfDistance/3);
+                    BlockOperation.BRefInsertDynamic(CurrentDocument, Stellar.CombBlockName[CombSize], dict,
+                        InsertionPoint.X + Stellar.ShelfTopFrontShifX+15, InsertionPoint.Y + Stellar.ShelfTopShiftDistanceY + Item - Stellar.ShelfDistance, InsertionPoint.Z);
                 }
 
             }

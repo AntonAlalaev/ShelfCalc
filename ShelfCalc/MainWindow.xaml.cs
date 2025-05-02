@@ -798,7 +798,6 @@ namespace ShelfCalc
                     }
                     else
                     {
-                        //Comb_size = Int32.Parse(((ComboBoxItem)SGSCombSize.SelectedItem).Content.ToString());
                         Comb_size = Int32.Parse(SGSCombSize.Text);
                     }
                 }
@@ -836,7 +835,7 @@ namespace ShelfCalc
                 }
                 this.Hide();
                 //ShelfDistanceSlide10000 is null || ShelfLowerSlide10000  is null || ShelfAmountSlide10000
-                DrawStell.Draw(new SBSGS(ShelfDistanceSGSSB.Text, ShelfLowerSGSSB.Text, ShelfAmountSGSSB.Text), Glubina, Dlina, true, false);
+                DrawStell.Draw(new SBSGS(ShelfDistanceSGSSB.Text, ShelfLowerSGSSB.Text, ShelfAmountSGSSB.Text), Glubina, Dlina, true, false, false, Comb_size);
                 this.Show();
             }
         }
